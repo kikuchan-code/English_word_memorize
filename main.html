@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>単語記憶ツール</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <main>
+    <!-- モーダル -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <p id="modal-message"></p>
+        <button id="modal-close-btn">閉じる</button>
+      </div>
+    </div>
+
+    <div id="settings-modal" class="modal">
+      <div class="modal-content">
+
+        <h3>設定</h3>
+
+        <div>
+          <label>
+            出題形式:
+            <select id="mode-switch" onchange="switchMode(this.value)">
+              <option value="jpToEn">日本語→英語</option>
+              <option value="enToJp">英語→日本語</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="reset-button" onclick="resetProgress()">
+          データリセット
+        </button>
+
+        <br><br>
+
+        <button onclick="closeSettingsModal()">閉じる</button>
+
+      </div>
+    </div>
+
+    <button class="setting-button" , onclick="openSettingsModal()">⚙ 設定</button>
+
+    <br>
+    <div id="progress-container">
+      <label for="quiz-progress">進捗状況:</label>
+      <progress id="quiz-progress" value="0" max="100"></progress>
+    </div>
+    <div id="quiz-container">
+    </div>
+    <!---
+    <div class="review-list">
+      <h3>不正解の単語リスト（復習用）</h3>
+      <table id="incorrect-words-table" border="1">
+        <thead>
+          <tr>
+            <th>問題文</th>
+            <th>正解数</th>
+            <th>必要数</th>
+          </tr>
+        </thead>
+        <tbody>
+          !-- 動的に行を追加 --
+        </tbody>
+      </table>
+    </div>
+-->
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

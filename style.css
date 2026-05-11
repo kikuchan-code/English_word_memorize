@@ -1,0 +1,294 @@
+body {
+  --color_main: #44497e;
+  margin: 0;
+  min-height: 100vh;
+
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding: 20px 10px;
+}
+
+main {
+  padding: 1em;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  text-align: center;
+  width: min(1200px, 95%);
+  max-width: 1200px;
+  overflow-x: auto;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+input,
+.input-box {
+  background-color: color-mix(in srgb, var(--color_main) 10%, white 90%);
+  color: black;
+  border: 2px solid var(--color_main);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  min-width: 120px;
+  width: 180px;
+  max-width: 100%;
+  margin: 5pt 10pt;
+}
+
+.input-box {
+  margin-left: 5px;
+}
+
+input:focus,
+.input-box:focus {
+  outline: none;
+  border-color: color-mix(in srgb, var(--color_main) 70%, black 30%);
+  background-color: white;
+}
+
+.mgr-5 {
+  margin-right: 5px;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.choice-item:hover {
+  border-color: var(--color_main);
+  background-color: color-mix(in srgb, var(--color_main) 8%, white 92%);
+}
+
+.choice-item input {
+  width: auto;
+  margin: 0;
+}
+
+/* Basic Styling */
+#mode-switch {
+  padding: 12px 12px;
+  border: 1px solid color-mix(in srgb, var(--color_main) 80%, white 80%);
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  appearance: none;
+  /* Removes default OS styling for select */
+  background-color: #fff;
+}
+
+#mode-switch:focus {
+  outline: none;
+  border-color: var(--color_main);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color_main) 80%, white 80%);
+  /*border-color: #007bff;*/
+  /* Highlight on focus */
+  /*box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);*/
+}
+
+.correct {
+  background-color: lightgreen;
+}
+
+.incorrect {
+  background-color: lightcoral;
+}
+
+.next-button,
+.skip-button,
+.setting-button {
+  margin: 20px 20px;
+  padding: 10px 50px;
+  background-color: var(--color_main);
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.next-button:hover,
+.skip-button:hover,
+.setting-button:hover {
+  background-color: color-mix(in srgb, var(--color_main) 80%, black 20%);
+}
+
+#reset-button {
+  margin: 20px 20px;
+  padding: 10px 10pt;
+  background-color: #db4f2e;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#reset-button:hover {
+  background-color: darkred;
+}
+
+.next-button,
+.skip-button,
+.setting-button,
+#reset-button {
+  transition: 0.2s;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* プログレスバーの基本スタイル */
+progress {
+  width: 100%;
+  /* 幅を100%に */
+  height: 20px;
+  /* 高さを指定 */
+  border-radius: 10px;
+  /* 角を丸く */
+  border: 1px solid color-mix(in srgb, var(--color_main) 80%, white 80%);
+  /* 枠線の色 */
+  background-color: #f0f0f0;
+  /* 背景色 */
+  appearance: none;
+  /* デフォルトスタイルを無効化 */
+}
+
+/* プログレスバーの内部の進捗部分 */
+progress::-webkit-progress-bar {
+  background-color: #f0f0f0;
+  /* 背景色 */
+  border-radius: 10px;
+  /* 角を丸く */
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--color_main);
+  /* 進捗部分の色（緑色#4caf50） */
+  border-radius: 10px;
+  /* 角を丸く */
+  transition: width 0.3s ease;
+  /* 幅変更時のアニメーション */
+}
+
+/* Firefox用 */
+progress::-moz-progress-bar {
+  background-color: var(--color_main);
+  /* 進捗部分の色 */
+  border-radius: 10px;
+  /* 角を丸く */
+}
+
+/* 進捗バーの値が100%のときの色を変更 */
+progress[value="100"]::-webkit-progress-value {
+  background-color: #6068ee;
+}
+
+.review-list {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  /*overflow-y: auto;*/
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+#incorrect-words-table {
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+#incorrect-words-table th,
+#incorrect-words-table td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+#incorrect-words-table th {
+  background-color: #f2f2f2;
+}
+
+/* ===== デフォルト（PC）→ 上寄せ ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: var(--color_main);
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    align-items: center;
+    padding-top: 0;
+  }
+}
+
+.modal-content {
+  font-size: 12pt;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 90%;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.modal button {
+  font-size: 12pt;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--color_main);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: color-mix(in srgb, var(--color_main) 80%, black 20%);
+}
+
+/* 通常モーダル（最前面） */
+#modal {
+  z-index: 2000;
+}
+
+/* 設定モーダル（その下） */
+#settings-modal {
+  z-index: 1000;
+}
