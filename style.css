@@ -1,294 +1,872 @@
+/* ============================================================
+   Root & Reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-main: #3d4494;
+  --color-main-dk: #2c3270;
+  --color-main-lt: #eef0ff;
+  --color-accent: #6c74d8;
+  --color-danger: #c94040;
+  --color-danger-dk: #a03030;
+  --color-text: #1a1d2e;
+  --color-sub: #5a5f7a;
+  --color-border: #dde0ef;
+  --color-bg: #f4f5fb;
+  --color-card: #ffffff;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  --shadow-card: 0 2px 16px rgba(61, 68, 148, .10);
+  --shadow-hover: 0 6px 24px rgba(61, 68, 148, .18);
+  --font-en: 'DM Sans', sans-serif;
+  --font-ja: 'Noto Sans JP', sans-serif;
+  --transition: 0.18s ease;
+}
+
 body {
-  --color_main: #44497e;
   margin: 0;
   min-height: 100vh;
-
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-
+  background:
+    radial-gradient(circle at top,
+      #f8f9ff,
+      #eef1fb 45%,
+      #f4f5fb 100%);
+  font-family: var(--font-ja);
+  color: var(--color-text);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-
-  padding: 20px 10px;
+  text-rendering: optimizeLegibility;
 }
 
+/* ============================================================
+   Header
+   ============================================================ */
+.app-header {
+  width: 100%;
+  max-width: 780px;
+  padding: 20px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.app-title-en {
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  color: var(--color-main);
+}
+
+.app-title-ja {
+  font-size: 0.72rem;
+  color: var(--color-sub);
+  letter-spacing: 0.05em;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   Main card
+   ============================================================ */
 main {
-  padding: 1em;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  text-align: center;
-  width: min(1200px, 95%);
-  max-width: 1200px;
-  overflow-x: auto;
+  width: 100%;
+  max-width: 780px;
+  margin: 24px auto 40px;
+  padding: 28px 28px 32px;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
 }
 
+/* ============================================================
+   Progress bar
+   ============================================================ */
+#progress-container {
+  margin-bottom: 28px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-sub);
+  font-family: var(--font-en);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+progress {
+  width: 100%;
+  height: 8px;
+  border: none;
+  border-radius: 99px;
+  background-color: var(--color-main-lt);
+  appearance: none;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--color-main-lt);
+  border-radius: 99px;
+}
+
+progress::-webkit-progress-value {
+  position: relative;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-main));
+  border-radius: 99px;
+  transition: width var(--transition);
+}
+
+progress::-webkit-progress-value::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: rgba(255, 255, 255, .35);
+  transform: skewX(-20deg);
+  animation: progressShine 2s infinite;
+}
+
+@keyframes progressShine {
+  to {
+    left: 120%;
+  }
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-main));
+  border-radius: 99px;
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 10%;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent),
+    var(--color-main)
+  );
+
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--color-main),
+    var(--color-main-dk)
+  );
+
+  background-clip: content-box;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) transparent;
+}
+
+/* ============================================================
+   Question area
+   ============================================================ */
 .question {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-input,
+.sentence-ja {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.7;
+  margin: 0 0 16px;
+  padding: 16px 20px;
+  background: var(--color-main-lt);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-accent);
+}
+
+.sentence-en {
+  font-family: var(--font-en);
+  font-size: 1.05rem;
+  color: var(--color-sub);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.word-display {
+  font-family: var(--font-en);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-main);
+  margin: 0 0 24px;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   Input
+   ============================================================ */
+input[type="text"],
 .input-box {
-  background-color: color-mix(in srgb, var(--color_main) 10%, white 90%);
-  color: black;
-  border: 2px solid var(--color_main);
-  border-radius: 8px;
-  padding: 8px;
-  font-size: 16px;
-  min-width: 120px;
-  width: 180px;
+  background: var(--color-main-lt);
+  color: var(--color-text);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  font-size: 1rem;
+  font-family: var(--font-en);
+  min-width: 110px;
+  width: 160px;
   max-width: 100%;
-  margin: 5pt 10pt;
+  margin: 2px 4px;
+  transition: border-color var(--transition), background var(--transition);
 }
 
-.input-box {
-  margin-left: 5px;
-}
-
-input:focus,
+input[type="text"]:focus,
 .input-box:focus {
   outline: none;
-  border-color: color-mix(in srgb, var(--color_main) 70%, black 30%);
-  background-color: white;
+  border-color: var(--color-accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(108, 116, 216, .15);
 }
 
-.mgr-5 {
-  margin-right: 5px;
+input[type="text"].correct {
+  background: #d4f5df;
+  border-color: #3db46a;
+  color: #1a6e38;
 }
 
+input[type="text"].incorrect {
+  background: #fde8e8;
+  border-color: #c94040;
+  color: #7a1a1a;
+}
+
+/* ============================================================
+   Choices (enToJp)
+   ============================================================ */
 .choices {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .choice-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
   cursor: pointer;
   text-align: left;
-  transition: 0.2s;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .choice-item:hover {
-  border-color: var(--color_main);
-  background-color: color-mix(in srgb, var(--color_main) 8%, white 92%);
+  border-color: var(--color-accent);
+  background: var(--color-main-lt);
+  transform: translateX(2px) scale(1.01);
 }
 
-.choice-item input {
-  width: auto;
+.choice-item input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-main);
+  flex-shrink: 0;
   margin: 0;
 }
 
-/* Basic Styling */
-#mode-switch {
-  padding: 12px 12px;
-  border: 1px solid color-mix(in srgb, var(--color_main) 80%, white 80%);
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  appearance: none;
-  /* Removes default OS styling for select */
-  background-color: #fff;
+.choice-item:has(input:checked) {
+  border-color: var(--color-main);
+  background: var(--color-main-lt);
+  box-shadow: 0 4px 16px rgba(61, 68, 148, .12);
 }
 
-#mode-switch:focus {
-  outline: none;
-  border-color: var(--color_main);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color_main) 80%, white 80%);
-  /*border-color: #007bff;*/
-  /* Highlight on focus */
-  /*box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);*/
-}
-
-.correct {
-  background-color: lightgreen;
-}
-
-.incorrect {
-  background-color: lightcoral;
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .next-button,
 .skip-button,
 .setting-button {
-  margin: 20px 20px;
-  padding: 10px 50px;
-  background-color: var(--color_main);
-  color: white;
-  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 32px;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: var(--font-ja);
+  font-weight: 700;
   cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
-.next-button:hover,
-.skip-button:hover,
+/* キャンセル・閉じる系のボタンを skip-button 風に統一 */
+.modal-cancel-btn,
+.settings-close-btn,
+.dataset-close-btn {
+  background: transparent !important;
+  color: var(--color-sub) !important;
+  border: 2px solid var(--color-border) !important;
+  padding: 14px 24px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  width: 100%;
+  margin-top: 8px !important;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.modal-cancel-btn:hover,
+.settings-close-btn:hover,
+.dataset-close-btn:hover {
+  background: var(--color-main-lt) !important;
+  border-color: var(--color-accent) !important;
+  color: var(--color-main) !important;
+  box-shadow: none !important;
+  transform: translateY(0) !important; /* キャンセル時は跳ねさせない */
+}
+
+.dataset-close-btn {
+  margin-top: 20pt !important;
+}
+
+.next-button {
+  background: var(--color-main);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(61, 68, 148, .3);
+}
+
+.next-button:hover {
+  background: var(--color-main-dk);
+  box-shadow: 0 4px 16px rgba(61, 68, 148, .35);
+}
+
+.skip-button {
+  background: transparent;
+  color: var(--color-sub);
+  border: 2px solid var(--color-border);
+  padding: 10px 28px;
+}
+
+.skip-button:hover {
+  background: var(--color-main-lt);
+  border-color: var(--color-accent);
+  color: var(--color-main);
+}
+
+.setting-button {
+  background: var(--color-main);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  border-radius: var(--radius-md);
+}
+
 .setting-button:hover {
-  background-color: color-mix(in srgb, var(--color_main) 80%, black 20%);
-}
-
-#reset-button {
-  margin: 20px 20px;
-  padding: 10px 10pt;
-  background-color: #db4f2e;
-  color: white;
-  font-size: 15px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-#reset-button:hover {
-  background-color: darkred;
-}
-
-.next-button,
-.skip-button,
-.setting-button,
-#reset-button {
-  transition: 0.2s;
+  background: var(--color-main-dk);
 }
 
 button:active {
-  transform: scale(0.97);
+  transform: translateY(1px) scale(.98) !important;
+  box-shadow: none !important;
+
 }
 
-/* プログレスバーの基本スタイル */
-progress {
-  width: 100%;
-  /* 幅を100%に */
-  height: 20px;
-  /* 高さを指定 */
-  border-radius: 10px;
-  /* 角を丸く */
-  border: 1px solid color-mix(in srgb, var(--color_main) 80%, white 80%);
-  /* 枠線の色 */
-  background-color: #f0f0f0;
-  /* 背景色 */
-  appearance: none;
-  /* デフォルトスタイルを無効化 */
+/* ============================================================
+   Empty state
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--color-sub);
 }
 
-/* プログレスバーの内部の進捗部分 */
-progress::-webkit-progress-bar {
-  background-color: #f0f0f0;
-  /* 背景色 */
-  border-radius: 10px;
-  /* 角を丸く */
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 8px;
 }
 
-progress::-webkit-progress-value {
-  background-color: var(--color_main);
-  /* 進捗部分の色（緑色#4caf50） */
-  border-radius: 10px;
-  /* 角を丸く */
-  transition: width 0.3s ease;
-  /* 幅変更時のアニメーション */
-}
-
-/* Firefox用 */
-progress::-moz-progress-bar {
-  background-color: var(--color_main);
-  /* 進捗部分の色 */
-  border-radius: 10px;
-  /* 角を丸く */
-}
-
-/* 進捗バーの値が100%のときの色を変更 */
-progress[value="100"]::-webkit-progress-value {
-  background-color: #6068ee;
-}
-
+/* ============================================================
+   Incorrect words table
+   ============================================================ */
 .review-list {
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  /*overflow-y: auto;*/
-  border: 1px solid #ccc;
-  padding: 10px;
-  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 #incorrect-words-table {
   width: 100%;
-  overflow-x: auto;
   border-collapse: collapse;
+  font-size: 0.9rem;
 }
 
 #incorrect-words-table th,
 #incorrect-words-table td {
-  padding: 8px;
+  padding: 10px 12px;
   text-align: center;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid var(--color-border);
 }
 
 #incorrect-words-table th {
-  background-color: #f2f2f2;
+  background: var(--color-main-lt);
+  color: var(--color-main);
+  font-weight: 700;
+  font-size: 0.82rem;
 }
 
-/* ===== デフォルト（PC）→ 上寄せ ===== */
+#incorrect-words-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ============================================================
+   Modal backdrop
+   ============================================================ */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background-color: var(--color_main);
+  background: rgba(10, 12, 30, .38);
+  backdrop-filter: blur(6px);
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 10px;
-  overflow-y: auto;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-  .modal {
-    align-items: center;
-    padding-top: 0;
-  }
-}
-
-.modal-content {
-  font-size: 12pt;
-  background: white;
+  align-items: center;
   padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-  max-width: 90%;
-  width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.18s ease;
 }
 
+/* ============================================================
+   Modal content
+   ============================================================ */
+.modal-content {
+  width: min(94vw, 440px);
+  position: relative;
+  overflow: hidden;
+  background: var(--color-card);
+  border-radius: 16pt;
+  padding: 32px 32px 24px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, .18);
+  text-align: center;
+  animation: modalPop 0.2s cubic-bezier(.34, 1.56, .64, 1);
+}
 
-.modal button {
-  font-size: 12pt;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: var(--color_main);
-  color: white;
-  border: none;
-  border-radius: 5px;
+.dataset-modal-content {
+  width: min(94vw, 520px);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Settings modal: fixed header + scrollable body + fixed footer */
+.settings-modal-content {
+  width: min(94vw, 440px);
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.settings-header {
+  padding: 28px 32px 8px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.settings-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--color-main);
+  font-family: var(--font-ja);
+}
+
+.settings-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 32px 8px;
+  scrollbar-gutter: stable;
+}
+
+.settings-footer {
+  padding: 12px 32px 20px;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.modal-content h3 {
+  margin: 0 0 24px;
+  font-size: 1.2rem;
+  color: var(--color-main);
+  font-family: var(--font-ja);
+}
+
+#modal-message {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0 0 24px;
+  font-weight: 500;
+}
+
+.modal-label {
+  display: inline-block;
+  background: var(--color-main-lt); 
+  color: var(--color-main); 
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin: 20px 0 10px;
+}
+
+/* Modal select */
+.modal select,
+#mode-switch {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
+  font-size: 0.95rem;
+  font-family: var(--font-ja);
+  color: var(--color-text);
+  background: #fff;
+  appearance: none;
+  transition: border-color var(--transition);
   cursor: pointer;
 }
 
-.modal button:hover {
-  background-color: color-mix(in srgb, var(--color_main) 80%, black 20%);
+.modal select:focus,
+#mode-switch:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(108, 116, 216, .15);
 }
 
-/* 通常モーダル（最前面） */
+/* Modal buttons */
+.modal button,
+.modal-content button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-main);
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: var(--font-ja);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.modal button:hover,
+.modal-content button:hover {
+  background: var(--color-main-dk);
+  box-shadow: 0 4px 14px rgba(61, 68, 148, .28);
+}
+
+/* Modal section divider */
+.modal-section {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.section-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-sub);
+  text-align: left;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+/* Danger zone */
+.danger-zone {
+  margin-top: 24px;
+}
+
+.danger-button {
+  background: var(--color-danger) !important;
+}
+
+.danger-button:hover {
+  background: var(--color-danger-dk) !important;
+}
+
+/* Dataset modal styles */
+.dataset-section {
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: border-color var(--transition);
+}
+
+.dataset-section.dataset-active {
+  border-color: var(--color-accent);
+  background: var(--color-main-lt);
+}
+
+.dataset-label {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.active-badge {
+  font-size: 0.72rem;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 700;
+}
+
+.mode-tag {
+  font-size: 0.76rem;
+  color: var(--color-sub);
+  font-weight: 700;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dataset-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dataset-buttons button {
+  flex: 1;
+  min-width: 70px;
+  margin: 0 !important;
+  padding: 8px 8px !important;
+  font-size: 0.82rem !important;
+  border-radius: var(--radius-sm) !important;
+  background: var(--color-main) !important;
+}
+
+.dataset-buttons button:disabled {
+  background: #ddd !important;
+  color: #aaa !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+/* export button */
+.btn-nowset {
+  --btn-bg: #6068ee;
+}
+
+.btn-allsets {
+  --btn-bg: #248dec;
+}
+
+.modal-content button.btn-nowset,
+.modal-content button.btn-allsets {
+  background: var(--btn-bg);
+}
+
+.modal-content button.btn-allsets:hover,
+.modal-content button.btn-alldata:hover {
+  /* 黒を20%混ぜて、輝度を約10%落とす */
+  background: color-mix(in srgb, var(--btn-bg), black 20%) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
+}
+
+/* File load section */
+.file-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.file-section-title {
+  font-size: 0.8rem;
+  color: var(--color-sub);
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.file-btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.file-label {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--color-main);
+  color: #fff;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: var(--font-ja);
+  transition: background var(--transition);
+  min-width: 120px;
+}
+
+.file-label:hover {
+  background: var(--color-main-dk);
+}
+
+.file-label-secondary {
+  background: var(--color-sub);
+}
+
+.file-label-secondary:hover {
+  background: #3a3f5a;
+}
+
+/* z-index stacking */
 #modal {
   z-index: 2000;
 }
 
-/* 設定モーダル（その下） */
 #settings-modal {
+  z-index: 1500;
+}
+
+#dataset-modal {
   z-index: 1000;
+}
+
+/* ============================================================
+   Animations
+   ============================================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  main {
+    padding: 16px 16px 24px;
+    margin: 16px 8px 30px;
+    border-radius: var(--radius-lg);
+  }
+
+  .app-header {
+    padding: 16px 8px 0;
+  }
+
+  .sentence-ja {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  .word-display {
+    font-size: 1.7rem;
+  }
+
+  .next-button,
+  .skip-button {
+    padding: 8px 24px;
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    padding: 24px 16px 16px;
+  }
+}
+
+/* ============================================================
+   Mobile
+   ============================================================ */
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+.choice-item,
+input,
+select {
+  touch-action: manipulation;
 }

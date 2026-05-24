@@ -2,356 +2,105 @@
 // 複数語対応
 
 const quizDataRaw = [
-  {
-    "word": "fluent",
-    "blankword": null,
-    "meaning": "流ちょうな",
-    "sentenceJa": "あの外国人教授は流ちょうな日本語を話す。",
-    "sentenceEn": "That foreign professor speaks fluent Japanese."
-  },
-  {
-    "word": "immense",
-    "blankword": null,
-    "meaning": "広大な、巨大な",
-    "sentenceJa": "広大な宇宙では、地球は一片のちりのようなものだ。",
-    "sentenceEn": "The earth is like a piece of dust in the immense universe."
-  },
-  {
-    "word": "tremendous",
-    "blankword": null,
-    "meaning": "途方もない、すさまじい",
-    "sentenceJa": "遺伝子工学は人類に恩恵をもたらす途方もない可能性を秘めている。",
-    "sentenceEn": "Genetic engineering has tremendous potential to provide benefits for human beings."
-  },
-  {
-    "word": "due",
-    "blankword": null,
-    "meaning": "～することになっている",
-    "sentenceJa": "彼はこの週末にヨーロッパから帰って来ることになっている。",
-    "sentenceEn": "He is due to return from Europe this weekend."
-  },
-  {
-    "word": "lick",
-    "blankword": "licked",
-    "meaning": "舐める",
-    "sentenceJa": "彼は切手を舐めて封筒に貼った。",
-    "sentenceEn": "He licked the stamp to stick it on the envelope."
-  },
-  {
-    "word": "cough",
-    "blankword": "coughing",
-    "meaning": "咳をする、咳",
-    "sentenceJa": "咳を止めたいときはこの薬を飲みなさい。",
-    "sentenceEn": "Take this medicine when you want to stop coughing."
-  },
-  {
-    "word": "sneeze",
-    "blankword": null,
-    "meaning": "くしゃみをする、くしゃみ",
-    "sentenceJa": "くしゃみをする時は口を覆いなさい。",
-    "sentenceEn": "Cover your mouth when you sneeze."
-  },
-  {
-    "word": "yawn",
-    "blankword": null,
-    "meaning": "あくびする、あくび",
-    "sentenceJa": "私は授業中にあくびをしないよう一生懸命こらえた。",
-    "sentenceEn": "I tried hard not to yawn during the class."
-  },
-  {
-    "word": "tend",
-    "blankword": null,
-    "meaning": "～する傾向がある、～しがちである",
-    "sentenceJa": "日本人は長時間働く傾向がある。",
-    "sentenceEn": "Japanese people tend to work long hours."
-  },
-  {
-    "word": "promise",
-    "blankword": "promised",
-    "meaning": "約束する、約束",
-    "sentenceJa": "彼らは電力料金の値下げを約束した。",
-    "sentenceEn": "They promised to reduce the electric rate."
-  },
-  {
-    "word": "establish",
-    "blankword": "established",
-    "meaning": "設立する、確立する",
-    "sentenceJa": "この大学は100年前に設立されました。",
-    "sentenceEn": "This college was established a hundred years ago."
-  },
-  {
-    "word": "slash",
-    "blankword": null,
-    "meaning": "切る、切り詰め、切り傷",
-    "sentenceJa": "学長は研究予算を切り詰めることを決めた。",
-    "sentenceEn": "The president decided to slash the research budget."
-  },
-  {
-    "word": "peel",
-    "blankword": "peeling",
-    "meaning": "はがれる、(皮を)むく、皮",
-    "sentenceJa": "その車は塗装が一部はがれている。",
-    "sentenceEn": "The paint of the car is partly peeling."
-  },
-  {
-    "word": "fry",
-    "blankword": null,
-    "meaning": "揚げる、炒める",
-    "sentenceJa": "私たちはポテトを揚げるのに植物油を使っています。",
-    "sentenceEn": "We use vegetable oil to fry potatoes."
-  },
-  {
-    "word": "achieve",
-    "blankword": "achieved",
-    "meaning": "達成する",
-    "sentenceJa": "わが社は一年に100万台の車を販売するという目標を達成した。",
-    "sentenceEn": "Our company achieved its goal of selling one million cars a year."
-  },
-  {
-    "word": "replace",
-    "blankword": "replaced",
-    "meaning": "取り替える、取って代わる",
-    "sentenceJa": "その工場はすべての照明をLED電球と取り替えた。",
-    "sentenceEn": "The factory replaced all its lights with LED lamps."
-  },
-  {
-    "word": "emerge",
-    "blankword": "emerged",
-    "meaning": "現れる",
-    "sentenceJa": "私たちは地球上にどうやって生命が現れたかを研究している。",
-    "sentenceEn": "We study how life emerged on the earth."
-  },
-  {
-    "word": "scare",
-    "blankword": null,
-    "meaning": "おびえさせる、恐怖",
-    "sentenceJa": "白衣を着た医者はそれだけで小さい子供をおびえさせることがある。",
-    "sentenceEn": "A doctor in a white coat alone can scare small children."
-  },
-  {
-    "word": "communicate",
-    "blankword": null,
-    "meaning": "伝える、通信する",
-    "sentenceJa": "個人的な感情を外国語で伝えるのは難しい。",
-    "sentenceEn": "It is difficult to communicate personal feelings in a foreign language."
-  },
-  {
-    "word": "interview",
-    "blankword": "interview",
-    "meaning": "面接、会見、面接する",
-    "sentenceJa": "筆記試験の後に面接が予定されている。",
-    "sentenceEn": "The interview is due after the written test."
-  },
-  {
-    "word": "bit",
-    "blankword": null,
-    "meaning": "少量、小片",
-    "sentenceJa": "この薬品はほんの少量で何百人もの人を殺せる。",
-    "sentenceEn": "Just a tiny bit of this chemical can kill hundreds of people."
-  },
-  {
-    "word": "ability",
-    "blankword": null,
-    "meaning": "能力",
-    "sentenceJa": "私は英語をすらすらと話せる能力がほしい。",
-    "sentenceEn": "I want to have the ability to speak English fluently."
-  },
-  {
-    "word": "fame",
-    "blankword": null,
-    "meaning": "名声、評判",
-    "sentenceJa": "その数学者は20代の時に自らの名声を確立した。",
-    "sentenceEn": "The mathematician established his fame in his twenties."
-  },
-  {
-    "word": "feedback",
-    "blankword": null,
-    "meaning": "意見、反応、フィードバック",
-    "sentenceJa": "私たちは皆様からのご意見をいつでも歓迎します。",
-    "sentenceEn": "We welcome your feedback at any time."
-  },
-  {
-    "word": "culture",
-    "blankword": null,
-    "meaning": "文化、教養",
-    "sentenceJa": "テクノロジーと文化は密接に関係している。",
-    "sentenceEn": "Technology and culture are closely related."
-  },
-  {
-    "word": "comment",
-    "blankword": "comments",
-    "meaning": "論評、コメント、コメントする",
-    "sentenceJa": "教授は私たちの研究に対してたくさんのコメントをくれた。",
-    "sentenceEn": "The professor gave us a lot of comments on our research."
-  },
-  {
-    "word": "birth",
-    "blankword": null,
-    "meaning": "誕生、出生",
-    "sentenceJa": "ここがその有名な政治家の誕生の地です。",
-    "sentenceEn": "This is the place of the famous politician's birth."
-  },
-  {
-    "word": "revolution",
-    "blankword": null,
-    "meaning": "革命、回転",
-    "sentenceJa": "携帯電話は情報通信産業に革命を起こした。",
-    "sentenceEn": "Cell phones caused a revolution in the information and communication industry."
-  },
-  {
-    "word": "generation",
-    "blankword": "generations",
-    "meaning": "世代、発生",
-    "sentenceJa": "私たちは文化を次の世代に伝えていかなければいけない。",
-    "sentenceEn": "We have to pass on our culture to the next generations."
-  },
-  {
-    "word": "staff",
-    "blankword": null,
-    "meaning": "職員、スタッフ",
-    "sentenceJa": "その博物館には子供たちに科学を教える職員がいない。",
-    "sentenceEn": "The museum has no staff to teach science to children."
-  },
-  {
-    "word": "spot",
-    "blankword": "spots",
-    "meaning": "点、地点、しみ、弱点",
-    "sentenceJa": "彼の新しい理論はまだいくつかの弱点がある。",
-    "sentenceEn": "His new theory still has some weak spots."
-  },
-  {
-    "word": "slope",
-    "blankword": null,
-    "meaning": "傾斜、坂、勾配",
-    "sentenceJa": "その板は10度の傾斜で取り付けられている。",
-    "sentenceEn": "The board is placed at a slope of 10 degrees."
-  },
-  {
-    "word": "friction",
-    "blankword": "Friction",
-    "meaning": "摩擦",
-    "sentenceJa": "油を差すことで摩擦は減らせます。",
-    "sentenceEn": "Friction can be decreased by greasing."
-  },
-  {
-    "word": "instrument",
-    "blankword": null,
-    "meaning": "計器、道具、器具、楽器",
-    "sentenceJa": "その物体の速さを測定するにはこの計器を使いなさい。",
-    "sentenceEn": "Use this instrument to measure the speed of the object."
-  },
-  {
-    "word": "magnitude",
-    "blankword": null,
-    "meaning": "大きさ、マグニチュード、規模",
-    "sentenceJa": "速さと距離は、大きさだけで方向を持たない量である。",
-    "sentenceEn": "Speed and distance are quantities which have only magnitude but no direction."
-  },
-  {
-    "word": "task",
-    "blankword": null,
-    "meaning": "仕事、作業、課題",
-    "sentenceJa": "彼らはその仕事を終えてから家へ帰った。",
-    "sentenceEn": "They went home after they had finished the task."
-  },
-  {
-    "word": "instruction",
-    "blankword": "instructions",
-    "meaning": "指示、指導、取扱説明書",
-    "sentenceJa": "教師は学生に明確な指示を与えるようにすべきです。",
-    "sentenceEn": "Teachers should try to give their students clear instructions."
-  },
-  {
-    "word": "mathematics",
-    "blankword": null,
-    "meaning": "数学",
-    "sentenceJa": "工学を学ぶ前に数学を知らなくてはならない。",
-    "sentenceEn": "You must know mathematics before you study engineering."
-  },
-  {
-    "word": "function",
-    "blankword": null,
-    "meaning": "機能、関数、機能を果たす",
-    "sentenceJa": "この計器の機能は光の強さを測定することです。",
-    "sentenceEn": "The function of this instrument is to measure the magnitude of the light."
-  },
-  {
-    "word": "relation",
-    "blankword": "The relation",
-    "meaning": "関係、関連",
-    "sentenceJa": "その2つの尺度の関係は次の通りである。",
-    "sentenceEn": "The relation between the two scales is as follows."
-  },
-  {
-    "word": "variable",
-    "blankword": "variables",
-    "meaning": "変数、変化しやすい",
-    "sentenceJa": "このグラフは2つの変数の関係を示している。",
-    "sentenceEn": "This graph shows the relationship between the two variables."
-  },
-  {
-    "word": "remainder",
-    "blankword": "The remainder",
-    "meaning": "余り、残り",
-    "sentenceJa": "10割る3の余りは1です。",
-    "sentenceEn": "The remainder of 10 divided by 3 is 1."
-  },
-  {
-    "word": "vector",
-    "blankword": "A vector",
-    "meaning": "ベクトル",
-    "sentenceJa": "ベクトルは向きと大きさの両方を持つ量である。",
-    "sentenceEn": "A vector is a quantity that has both direction and magnitude."
-  },
-  {
-    "word": "diameter",
-    "blankword": null,
-    "meaning": "直径",
-    "sentenceJa": "その穴は直径1m、深さ2mです。",
-    "sentenceEn": "The hole is one meter in diameter and two meters in depth."
-  },
-  {
-    "word": "radius",
-    "blankword": null,
-    "meaning": "半径",
-    "sentenceJa": "半径12メートルの円の面積はいくらですか。",
-    "sentenceEn": "What is the area of a circle with a radius of 12 meters?"
-  },
-  {
-    "word": "circumference",
-    "blankword": "The circumference",
-    "meaning": "円周",
-    "sentenceJa": "円周はその直径にπを掛けることで計算される。",
-    "sentenceEn": "The circumference is calculated by multiplying the diameter by π."
-  },
-  {
-    "word": "arc",
-    "blankword": null,
-    "meaning": "弧、アーク",
-    "sentenceJa": "このコンパスで弧を描きなさい。",
-    "sentenceEn": "Draw an arc with this compass."
-  },
-  {
-    "word": "arrow",
-    "blankword": null,
-    "meaning": "矢印、矢",
-    "sentenceJa": "この矢印の長さがベクトルの大きさを表しています。",
-    "sentenceEn": "The length of this arrow represents the magnitude of the vector."
-  },
-  {
-    "word": "statistics",
-    "blankword": "Statistics",
-    "meaning": "統計(学)",
-    "sentenceJa": "統計から、子供の数が減少してきていることがわかる。",
-    "sentenceEn": "Statistics show that the number of children has been decreasing."
-  },
-  {
-    "word": "matrix",
-    "blankword": null,
-    "meaning": "行列(マトリックス)",
-    "sentenceJa": "この行列の要素をすべて言いなさい。",
-    "sentenceEn": "Name all the elements of this matrix."
-  }
+  { word: "analysis", blankword: "Analysis", meaning: "名分析", sentenceJa: "分析によって、その物質は50パーセントが炭素であることが分かった。", sentenceEn: "Analysis showed that the material was 50 percent carbon." },
+
+  { word: "analyze", blankword: "analyzes", meaning: "他分析する", sentenceJa: "この装置は宇宙からの信号を分析する。", sentenceEn: "This device analyzes signals from space." },
+
+  { word: "infect", blankword: "infects", meaning: "他感染させる｜自感染する", sentenceJa: "インフルエンザは空気を通して人に感染する。", sentenceEn: "Influenza infects people through the air." },
+
+  { word: "ensure", blankword: "ensure", meaning: "他保証する｜確実にする", sentenceJa: "この薬はあなたがぐっすり眠れることを保証します。", sentenceEn: "The medicine will ensure that you have a good sleep." },
+
+  { word: "stress", blankword: "stressed", meaning: "他強調する｜名圧力・緊張", sentenceJa: "その医師は運動の必要性を強調した。", sentenceEn: "The doctor stressed the need for exercise." },
+
+  { word: "combine", blankword: "combine", meaning: "自結合する｜他組み合わせる・結合させる", sentenceJa: "ナトリウムと塩素が結合して塩になる。", sentenceEn: "Sodium and chlorine combine to form salt." },
+
+  { word: "avoid", blankword: "avoid", meaning: "他避ける｜回避する", sentenceJa: "ほとんどのドライバーは事故を避けるために急ブレーキを踏む。", sentenceEn: "Most drivers hit the brakes hard to avoid an accident." },
+
+  { word: "escape", blankword: "escape", meaning: "自脱出する｜逃げる", sentenceJa: "そのパイロットは飛行機が海に墜落する前にどうにか脱出した。", sentenceEn: "The pilot managed to escape from the airplane before it crashed into the sea." },
+
+  { word: "succeed", blankword: "succeed", meaning: "自成功する｜継承する", sentenceJa: "成功するかどうかは君の努力しだいだ。", sentenceEn: "Whether you will succeed or not depends on your effort." },
+
+  { word: "reflect", blankword: "reflects", meaning: "他反射する｜映す", sentenceJa: "鏡は光を反射する。", sentenceEn: "A mirror reflects light." },
+
+  { word: "retire", blankword: "retired", meaning: "自退職する｜引退する", sentenceJa: "彼は60歳で会社を退職した。", sentenceEn: "He retired from the company at the age of 60." },
+
+  { word: "maintain", blankword: "maintain", meaning: "他維持する｜整備する", sentenceJa: "高速道路で一定のスピードを維持するのはそんなに簡単ではない。", sentenceEn: "It is not so easy to maintain a constant speed on the expressway." },
+
+  { word: "transport", blankword: "transported", meaning: "他輸送する｜名輸送", sentenceJa: "完成した商品はトラックで輸送される。", sentenceEn: "The finished goods are transported by truck." },
+
+  { word: "transfer", blankword: "transfers", meaning: "他伝える｜移す｜名移転・転送", sentenceJa: "このシャフトが動力を車輪に伝える。", sentenceEn: "This shaft transfers the power to the wheels." },
+
+  { word: "emit", blankword: "emits", meaning: "他発する｜放出する", sentenceJa: "物が燃えると、それはたいてい光と熱を発する。", sentenceEn: "When a thing burns, it usually emits light and heat." },
+
+  { word: "surround", blankword: "surround", meaning: "他取り囲む", sentenceJa: "日本を囲んでいる海の名前を言いなさい。", sentenceEn: "Name the seas which surround Japan." },
+
+  { word: "doubt", blankword: "doubted", meaning: "他疑う｜疑問に思う｜名疑惑・疑念", sentenceJa: "彼が言ったことを疑う者はいなかった。", sentenceEn: "Nobody doubted what he said." },
+
+  { word: "announce", blankword: "announced", meaning: "他発表する｜知らせる", sentenceJa: "社長は会社のマーケティング計画を発表した。", sentenceEn: "The president announced his company's marketing plan." },
+
+  { word: "expose", blankword: "exposed", meaning: "他さらす｜露出する", sentenceJa: "その事故で作業員たちは放射線にさらされた。", sentenceEn: "The accident exposed the workers to radiation." },
+
+  { word: "admit", blankword: "admitted", meaning: "他認める｜入れる", sentenceJa: "彼は自分の間違いを認めた。", sentenceEn: "He admitted his mistake." },
+
+  { word: "attend", blankword: "attend", meaning: "他出席する｜世話をする", sentenceJa: "今日は3つの会議に出なくてはならない。", sentenceEn: "I have to attend three meetings today." },
+
+  { word: "realize", blankword: "realized", meaning: "他気付く｜認識する｜実現する", sentenceJa: "彼は丸一日眠っていたことに気付いた。", sentenceEn: "He realized that he had been sleeping for a whole day." },
+
+  { word: "enable", blankword: "enabled", meaning: "他可能にする", sentenceJa: "インターネットのおかげで私たちは自宅で買い物ができるようになった。", sentenceEn: "The Internet has enabled us to shop at home." },
+
+  { word: "alter", blankword: "altered", meaning: "他変更する", sentenceJa: "この計画はもはや変更不可能だ。", sentenceEn: "This plan can no longer be altered." },
+
+  { word: "alternative", blankword: "alternative", meaning: "形代替の｜名代替物", sentenceJa: "家庭用燃料電池は代替エネルギー技術の一つである。", sentenceEn: "A home fuel cell is an alternative energy technology." },
+
+  { word: "exact", blankword: "exact", meaning: "形正確な", sentenceJa: "実験では正確な量の薬品を使わなければならない。", sentenceEn: "You must use the exact amount of chemicals in the experiment." },
+
+  { word: "ultimate", blankword: "ultimate", meaning: "形最終的な｜究極の｜名極限", sentenceJa: "このプロジェクトの最終的な目標は何ですか。", sentenceEn: "What is the ultimate goal of this project?" },
+
+  { word: "inverse", blankword: "inverse", meaning: "形逆の｜反比例の｜名逆・逆数", sentenceJa: "逆行列の逆は元の行列に等しい。", sentenceEn: "The inverse of an inverse matrix is equal to the original matrix." },
+
+  { word: "military", blankword: "military", meaning: "形軍の｜名軍隊・軍人", sentenceJa: "その軍事作戦は早朝に実行された。", sentenceEn: "The military operations were carried out in the early morning." },
+
+  { word: "specific", blankword: "specific", meaning: "形明確な｜特定の", sentenceJa: "上司はいつも私たちに明確な指示を出してくれる。", sentenceEn: "Our boss always gives us specific instructions." },
+
+  { word: "final", blankword: "final", meaning: "形最終の｜最後の｜名決勝", sentenceJa: "この反応の最終生成物は塩です。", sentenceEn: "The final product of this reaction is salt." },
+
+  { word: "useless", blankword: "useless", meaning: "形役に立たない｜無用の", sentenceJa: "兄は役に立たないものを集めるのが好きだ。", sentenceEn: "My brother likes to collect useless items." },
+
+  { word: "relative", blankword: "relative", meaning: "形相対的な｜関係のある｜名親類", sentenceJa: "地球の直径を1メートルとすると、月の相対的な大きさは約27センチメートルになる。", sentenceEn: "If the diameter of the earth were 1 meter, the relative size of the moon would be about 27 centimeters." },
+
+  { word: "absolute", blankword: "absolute", meaning: "形絶対的な｜絶対の", sentenceJa: "その国では軍の指導者が絶対的権力を握っている。", sentenceEn: "The military leader has absolute power in that country." },
+
+  { word: "significant", blankword: "significant", meaning: "形重要な｜意義深い", sentenceJa: "絶対零度は科学において重要な意味を持つ温度だ。", sentenceEn: "Absolute zero is a significant temperature in science." },
+
+  { word: "dynamic", blankword: "dynamic", meaning: "形動的な", sentenceJa: "この制御プログラムによって、動的な省エネ機能が可能になった。", sentenceEn: "A dynamic energy-saving function has been enabled with this control program." },
+
+  { word: "static", blankword: "static", meaning: "形静的な", sentenceJa: "このプログラムは静的なデータしか扱えません。", sentenceEn: "This program can handle only static data." },
+
+  { word: "timid", blankword: "timid", meaning: "形臆病な", sentenceJa: "臆病な動物は大きな目や耳を持つ傾向がある。", sentenceEn: "Timid animals tend to have large eyes or ears." },
+
+  { word: "medium", blankword: "medium", meaning: "名媒体｜手段｜形中程度の", sentenceJa: "音は空気を媒体として伝わる。", sentenceEn: "Sounds travel through the medium of air." },
+
+  { word: "treaty", blankword: "treaty", meaning: "名条約｜協定", sentenceJa: "その二国間で平和条約が締結された。", sentenceEn: "The peace treaty was signed between the two countries." },
+
+  { word: "convention", blankword: "convention", meaning: "名会議｜大会", sentenceJa: "これは私が国際会議に出席する初めての機会です。", sentenceEn: "This is the first chance for me to attend an international convention." },
+
+  { word: "conclusion", blankword: "conclusions", meaning: "名結論｜結末", sentenceJa: "これらの実験から得られる主な結論は2つある。", sentenceEn: "There are two main conclusions from these experiments." },
+
+  { word: "influence", blankword: "influence", meaning: "名影響｜他影響を与える", sentenceJa: "その映画の影響で、今年は多くの人が日本にやって来た。", sentenceEn: "Due to the influence of that movie, many people came to Japan this year." },
+
+  { word: "principle", blankword: "principle", meaning: "名原理｜原則", sentenceJa: "作用反作用の原理はニュートンの第三法則で説明される。", sentenceEn: "The principle of action and reaction is explained by Newton's third law." },
+
+  { word: "advantage", blankword: "advantages", meaning: "名長所｜有利な点", sentenceJa: "公共交通機関の長所と短所は何ですか。", sentenceEn: "What are the advantages and disadvantages of public transportation?" },
+
+  { word: "reality", blankword: "reality", meaning: "名現実｜事実", sentenceJa: "現実から逃避しようとしてはいけない。", sentenceEn: "You should not try to escape from reality." },
+
+  { word: "marriage", blankword: "marriage", meaning: "名結婚｜結婚生活", sentenceJa: "私の両親の結婚生活は生涯続いた。", sentenceEn: "My parents' marriage lasted for their whole lives." },
+
+  { word: "infant", blankword: "infant", meaning: "名乳児｜幼児", sentenceJa: "この国の乳幼児死亡率はかなり高い。", sentenceEn: "The infant death rate is quite high in this country." },
+
+  { word: "incline", blankword: "inclined", meaning: "自傾く｜他傾ける", sentenceJa: "その飛行機は地面に対して約45度に傾いた。", sentenceEn: "The plane inclined about 45 degrees to the ground." },
+
+  { word: "decline", blankword: "declined", meaning: "自減少する｜下降する｜他断る", sentenceJa: "この市の人口は近年減少してきた。", sentenceEn: "The population of this city has declined in recent years." }
 ];
 
 console.log("data loaded", quizDataRaw);
