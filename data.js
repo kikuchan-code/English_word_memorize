@@ -1,106 +1,357 @@
 // wordと違う形（活用・過去形など）の場合は、blankwordで空欄にする箇所を指定する
 // 複数語対応
 
-const quizDataRaw = [
-  { word: "analysis", blankword: "Analysis", meaning: "名分析", sentenceJa: "分析によって、その物質は50パーセントが炭素であることが分かった。", sentenceEn: "Analysis showed that the material was 50 percent carbon." },
-
-  { word: "analyze", blankword: "analyzes", meaning: "他分析する", sentenceJa: "この装置は宇宙からの信号を分析する。", sentenceEn: "This device analyzes signals from space." },
-
-  { word: "infect", blankword: "infects", meaning: "他感染させる｜自感染する", sentenceJa: "インフルエンザは空気を通して人に感染する。", sentenceEn: "Influenza infects people through the air." },
-
-  { word: "ensure", blankword: "ensure", meaning: "他保証する｜確実にする", sentenceJa: "この薬はあなたがぐっすり眠れることを保証します。", sentenceEn: "The medicine will ensure that you have a good sleep." },
-
-  { word: "stress", blankword: "stressed", meaning: "他強調する｜名圧力・緊張", sentenceJa: "その医師は運動の必要性を強調した。", sentenceEn: "The doctor stressed the need for exercise." },
-
-  { word: "combine", blankword: "combine", meaning: "自結合する｜他組み合わせる・結合させる", sentenceJa: "ナトリウムと塩素が結合して塩になる。", sentenceEn: "Sodium and chlorine combine to form salt." },
-
-  { word: "avoid", blankword: "avoid", meaning: "他避ける｜回避する", sentenceJa: "ほとんどのドライバーは事故を避けるために急ブレーキを踏む。", sentenceEn: "Most drivers hit the brakes hard to avoid an accident." },
-
-  { word: "escape", blankword: "escape", meaning: "自脱出する｜逃げる", sentenceJa: "そのパイロットは飛行機が海に墜落する前にどうにか脱出した。", sentenceEn: "The pilot managed to escape from the airplane before it crashed into the sea." },
-
-  { word: "succeed", blankword: "succeed", meaning: "自成功する｜継承する", sentenceJa: "成功するかどうかは君の努力しだいだ。", sentenceEn: "Whether you will succeed or not depends on your effort." },
-
-  { word: "reflect", blankword: "reflects", meaning: "他反射する｜映す", sentenceJa: "鏡は光を反射する。", sentenceEn: "A mirror reflects light." },
-
-  { word: "retire", blankword: "retired", meaning: "自退職する｜引退する", sentenceJa: "彼は60歳で会社を退職した。", sentenceEn: "He retired from the company at the age of 60." },
-
-  { word: "maintain", blankword: "maintain", meaning: "他維持する｜整備する", sentenceJa: "高速道路で一定のスピードを維持するのはそんなに簡単ではない。", sentenceEn: "It is not so easy to maintain a constant speed on the expressway." },
-
-  { word: "transport", blankword: "transported", meaning: "他輸送する｜名輸送", sentenceJa: "完成した商品はトラックで輸送される。", sentenceEn: "The finished goods are transported by truck." },
-
-  { word: "transfer", blankword: "transfers", meaning: "他伝える｜移す｜名移転・転送", sentenceJa: "このシャフトが動力を車輪に伝える。", sentenceEn: "This shaft transfers the power to the wheels." },
-
-  { word: "emit", blankword: "emits", meaning: "他発する｜放出する", sentenceJa: "物が燃えると、それはたいてい光と熱を発する。", sentenceEn: "When a thing burns, it usually emits light and heat." },
-
-  { word: "surround", blankword: "surround", meaning: "他取り囲む", sentenceJa: "日本を囲んでいる海の名前を言いなさい。", sentenceEn: "Name the seas which surround Japan." },
-
-  { word: "doubt", blankword: "doubted", meaning: "他疑う｜疑問に思う｜名疑惑・疑念", sentenceJa: "彼が言ったことを疑う者はいなかった。", sentenceEn: "Nobody doubted what he said." },
-
-  { word: "announce", blankword: "announced", meaning: "他発表する｜知らせる", sentenceJa: "社長は会社のマーケティング計画を発表した。", sentenceEn: "The president announced his company's marketing plan." },
-
-  { word: "expose", blankword: "exposed", meaning: "他さらす｜露出する", sentenceJa: "その事故で作業員たちは放射線にさらされた。", sentenceEn: "The accident exposed the workers to radiation." },
-
-  { word: "admit", blankword: "admitted", meaning: "他認める｜入れる", sentenceJa: "彼は自分の間違いを認めた。", sentenceEn: "He admitted his mistake." },
-
-  { word: "attend", blankword: "attend", meaning: "他出席する｜世話をする", sentenceJa: "今日は3つの会議に出なくてはならない。", sentenceEn: "I have to attend three meetings today." },
-
-  { word: "realize", blankword: "realized", meaning: "他気付く｜認識する｜実現する", sentenceJa: "彼は丸一日眠っていたことに気付いた。", sentenceEn: "He realized that he had been sleeping for a whole day." },
-
-  { word: "enable", blankword: "enabled", meaning: "他可能にする", sentenceJa: "インターネットのおかげで私たちは自宅で買い物ができるようになった。", sentenceEn: "The Internet has enabled us to shop at home." },
-
-  { word: "alter", blankword: "altered", meaning: "他変更する", sentenceJa: "この計画はもはや変更不可能だ。", sentenceEn: "This plan can no longer be altered." },
-
-  { word: "alternative", blankword: "alternative", meaning: "形代替の｜名代替物", sentenceJa: "家庭用燃料電池は代替エネルギー技術の一つである。", sentenceEn: "A home fuel cell is an alternative energy technology." },
-
-  { word: "exact", blankword: "exact", meaning: "形正確な", sentenceJa: "実験では正確な量の薬品を使わなければならない。", sentenceEn: "You must use the exact amount of chemicals in the experiment." },
-
-  { word: "ultimate", blankword: "ultimate", meaning: "形最終的な｜究極の｜名極限", sentenceJa: "このプロジェクトの最終的な目標は何ですか。", sentenceEn: "What is the ultimate goal of this project?" },
-
-  { word: "inverse", blankword: "inverse", meaning: "形逆の｜反比例の｜名逆・逆数", sentenceJa: "逆行列の逆は元の行列に等しい。", sentenceEn: "The inverse of an inverse matrix is equal to the original matrix." },
-
-  { word: "military", blankword: "military", meaning: "形軍の｜名軍隊・軍人", sentenceJa: "その軍事作戦は早朝に実行された。", sentenceEn: "The military operations were carried out in the early morning." },
-
-  { word: "specific", blankword: "specific", meaning: "形明確な｜特定の", sentenceJa: "上司はいつも私たちに明確な指示を出してくれる。", sentenceEn: "Our boss always gives us specific instructions." },
-
-  { word: "final", blankword: "final", meaning: "形最終の｜最後の｜名決勝", sentenceJa: "この反応の最終生成物は塩です。", sentenceEn: "The final product of this reaction is salt." },
-
-  { word: "useless", blankword: "useless", meaning: "形役に立たない｜無用の", sentenceJa: "兄は役に立たないものを集めるのが好きだ。", sentenceEn: "My brother likes to collect useless items." },
-
-  { word: "relative", blankword: "relative", meaning: "形相対的な｜関係のある｜名親類", sentenceJa: "地球の直径を1メートルとすると、月の相対的な大きさは約27センチメートルになる。", sentenceEn: "If the diameter of the earth were 1 meter, the relative size of the moon would be about 27 centimeters." },
-
-  { word: "absolute", blankword: "absolute", meaning: "形絶対的な｜絶対の", sentenceJa: "その国では軍の指導者が絶対的権力を握っている。", sentenceEn: "The military leader has absolute power in that country." },
-
-  { word: "significant", blankword: "significant", meaning: "形重要な｜意義深い", sentenceJa: "絶対零度は科学において重要な意味を持つ温度だ。", sentenceEn: "Absolute zero is a significant temperature in science." },
-
-  { word: "dynamic", blankword: "dynamic", meaning: "形動的な", sentenceJa: "この制御プログラムによって、動的な省エネ機能が可能になった。", sentenceEn: "A dynamic energy-saving function has been enabled with this control program." },
-
-  { word: "static", blankword: "static", meaning: "形静的な", sentenceJa: "このプログラムは静的なデータしか扱えません。", sentenceEn: "This program can handle only static data." },
-
-  { word: "timid", blankword: "timid", meaning: "形臆病な", sentenceJa: "臆病な動物は大きな目や耳を持つ傾向がある。", sentenceEn: "Timid animals tend to have large eyes or ears." },
-
-  { word: "medium", blankword: "medium", meaning: "名媒体｜手段｜形中程度の", sentenceJa: "音は空気を媒体として伝わる。", sentenceEn: "Sounds travel through the medium of air." },
-
-  { word: "treaty", blankword: "treaty", meaning: "名条約｜協定", sentenceJa: "その二国間で平和条約が締結された。", sentenceEn: "The peace treaty was signed between the two countries." },
-
-  { word: "convention", blankword: "convention", meaning: "名会議｜大会", sentenceJa: "これは私が国際会議に出席する初めての機会です。", sentenceEn: "This is the first chance for me to attend an international convention." },
-
-  { word: "conclusion", blankword: "conclusions", meaning: "名結論｜結末", sentenceJa: "これらの実験から得られる主な結論は2つある。", sentenceEn: "There are two main conclusions from these experiments." },
-
-  { word: "influence", blankword: "influence", meaning: "名影響｜他影響を与える", sentenceJa: "その映画の影響で、今年は多くの人が日本にやって来た。", sentenceEn: "Due to the influence of that movie, many people came to Japan this year." },
-
-  { word: "principle", blankword: "principle", meaning: "名原理｜原則", sentenceJa: "作用反作用の原理はニュートンの第三法則で説明される。", sentenceEn: "The principle of action and reaction is explained by Newton's third law." },
-
-  { word: "advantage", blankword: "advantages", meaning: "名長所｜有利な点", sentenceJa: "公共交通機関の長所と短所は何ですか。", sentenceEn: "What are the advantages and disadvantages of public transportation?" },
-
-  { word: "reality", blankword: "reality", meaning: "名現実｜事実", sentenceJa: "現実から逃避しようとしてはいけない。", sentenceEn: "You should not try to escape from reality." },
-
-  { word: "marriage", blankword: "marriage", meaning: "名結婚｜結婚生活", sentenceJa: "私の両親の結婚生活は生涯続いた。", sentenceEn: "My parents' marriage lasted for their whole lives." },
-
-  { word: "infant", blankword: "infant", meaning: "名乳児｜幼児", sentenceJa: "この国の乳幼児死亡率はかなり高い。", sentenceEn: "The infant death rate is quite high in this country." },
-
-  { word: "incline", blankword: "inclined", meaning: "自傾く｜他傾ける", sentenceJa: "その飛行機は地面に対して約45度に傾いた。", sentenceEn: "The plane inclined about 45 degrees to the ground." },
-
-  { word: "decline", blankword: "declined", meaning: "自減少する｜下降する｜他断る", sentenceJa: "この市の人口は近年減少してきた。", sentenceEn: "The population of this city has declined in recent years." }
+const vocabulary = [
+  {
+    word: "rely",
+    blankword: "rely",
+    meaning: "頼る",
+    sentenceJa: "科学技術に頼りすぎてはいけない",
+    sentenceEn: "You should not rely on science and technology too much."
+  },
+  {
+    word: "seek",
+    blankword: "seeking",
+    meaning: "さがす",
+    sentenceJa: "多くの科学者がこの問題の解法を探している",
+    sentenceEn: "Many scientists are seeking a solution to this problem."
+  },
+  {
+    word: "miss",
+    blankword: "missed",
+    meaning: "外す、逃す",
+    sentenceJa: "彼は銃を発射したが、それは標的を1インチ外した",
+    sentenceEn: "He fired the gun, but it missed the target by an inch."
+  },
+  {
+    word: "convert",
+    blankword: "converts",
+    meaning: "変換する、転換する",
+    sentenceJa: "太陽光発電システムは太陽の光を電気に変換する",
+    sentenceEn: "A solar energy system converts sunlight into electricity."
+  },
+  {
+    word: "rub",
+    blankword: "Rubbing",
+    meaning: "こする",
+    sentenceJa: "絹とガラスをこすり合わせると静電気が起こる",
+    sentenceEn: "Rubbing silk against glass will make static electricity."
+  },
+  {
+    word: "bore",
+    blankword: "bore",
+    meaning: "（ドリルで）穴をあける、退屈させる",
+    sentenceJa: "この機械は同時に2個の穴をあけることができる",
+    sentenceEn: "This machine can bore two holes at once."
+  },
+  {
+    word: "join",
+    blankword: "join",
+    meaning: "つなぐ、加わる",
+    sentenceJa: "2枚の板をつなぐため、それぞれに穴を開けなさい",
+    sentenceEn: "Bore a hole in each board to join them together."
+  },
+  {
+    word: "conduct",
+    blankword: "conducts",
+    meaning: "伝導する、指揮する",
+    sentenceJa: "熱や電気を伝える物質を伝導体という",
+    sentenceEn: "A material which conducts heat or electricity is called a conductor."
+  },
+  {
+    word: "insulate",
+    blankword: "insulate",
+    meaning: "絶縁する",
+    sentenceJa: "ゴムは電気を絶縁するのに良い材料である",
+    sentenceEn: "Rubber is a good material to insulate electricity."
+  },
+  {
+    word: "semiconductor",
+    blankword: "semiconductor",
+    meaning: "半導体",
+    sentenceJa: "半導体デバイスにはシリコンが広く使われている",
+    sentenceEn: "Silicon is widely used in semiconductor devices."
+  },
+  {
+    word: "diode",
+    blankword: "diode",
+    meaning: "ダイオード",
+    sentenceJa: "ダイオードの一般的な機能の一つは、交流を直流に変えることである",
+    sentenceEn: "One of the common functions of a diode is to convert alternating current to direct current."
+  },
+  {
+    word: "grant",
+    blankword: "grant",
+    meaning: "助成金、聞き入れる",
+    sentenceJa: "その教授は研究を続けるための助成金を100万円もらった",
+    sentenceEn: "The professor was given a grant of one million yen to continue his research."
+  },
+  {
+    word: "trigger",
+    blankword: "trigger",
+    meaning: "引き金、きっかけ",
+    sentenceJa: "運動不足は病気の引き金にもなる",
+    sentenceEn: "Lack of exercise can be a trigger of diseases."
+  },
+  {
+    word: "bullet",
+    blankword: "bullet",
+    meaning: "弾丸",
+    sentenceJa: "その弾丸は彼の銃から発射されたということがわかった",
+    sentenceEn: "It was found that the bullet had been fired from his gun."
+  },
+  {
+    word: "screw",
+    blankword: "screw",
+    meaning: "ネジ、ネジで留める、ねじる",
+    sentenceJa: "この木製のネジは小さな子供のおもちゃ用に作られています",
+    sentenceEn: "This wooden screw is designed for little children's toys."
+  },
+  {
+    word: "blade",
+    blankword: "blade",
+    meaning: "刃物、刃",
+    sentenceJa: "その刃物は鋭いので注意してください",
+    sentenceEn: "The blade is so sharp that you should watch out."
+  },
+  {
+    word: "edge",
+    blankword: "edge",
+    meaning: "端、刃先",
+    sentenceJa: "紙の端で皮膚を切ることもある",
+    sentenceEn: "The edge of paper can cut your skin."
+  },
+  {
+    word: "rod",
+    blankword: "rods",
+    meaning: "棒、さお",
+    sentenceJa: "2本の棒の端をボルトでつなぎなさい",
+    sentenceEn: "Join the two rods with a bolt at each end."
+  },
+  {
+    word: "jack",
+    blankword: "jack",
+    meaning: "ジャッキ、ジャック",
+    sentenceJa: "このジャッキは600kgまでの荷を持ち上げることができる",
+    sentenceEn: "This jack can lift loads of up to 600 kilograms."
+  },
+  {
+    word: "contract",
+    blankword: "contract",
+    meaning: "契約（書）、契約する、収縮する",
+    sentenceJa: "その2社は契約に合意した",
+    sentenceEn: "The two companies agreed on the contract."
+  },
+  {
+    word: "component",
+    blankword: "components",
+    meaning: "部品、構成要素",
+    sentenceJa: "コンピュータの中には情報を処理するための電子部品がある",
+    sentenceEn: "A computer has some electronic components to process information."
+  },
+  {
+    word: "vehicle",
+    blankword: "vehicles",
+    meaning: "車両、乗り物",
+    sentenceJa: "その事故では7台の車両が衝突した",
+    sentenceEn: "Seven vehicles crashed in that accident."
+  },
+  {
+    word: "fare",
+    blankword: "fare",
+    meaning: "運賃",
+    sentenceJa: "京都までの往復運賃はいくらですか",
+    sentenceEn: "How much is the round-trip fare to Kyoto?"
+  },
+  {
+    word: "strain",
+    blankword: "strain",
+    meaning: "負担、緊張、重圧",
+    sentenceJa: "その重いカバンが彼の肩に負担をかけている",
+    sentenceEn: "That heavy bag is putting a strain on his shoulder."
+  },
+  {
+    word: "ambulance",
+    blankword: "ambulance",
+    meaning: "救急車",
+    sentenceJa: "彼は救急車で病院に運ばれた",
+    sentenceEn: "He was taken to the hospital by ambulance."
+  },
+  {
+    word: "emergency",
+    blankword: "emergencies",
+    meaning: "非常（緊急）事態",
+    sentenceJa: "この実験室には非常時のために発電機が備えられている",
+    sentenceEn: "This laboratory is equipped with a generator for emergencies."
+  },
+  {
+    word: "craft",
+    blankword: "craft",
+    meaning: "技能、工芸、船舶",
+    sentenceJa: "彼女は木工の技能を身に付けた",
+    sentenceEn: "She has mastered the craft of woodworking."
+  },
+  {
+    word: "aircraft",
+    blankword: "aircraft",
+    meaning: "航空機",
+    sentenceJa: "航空機の中には音速より速く飛べるものもある",
+    sentenceEn: "Some aircraft can travel faster than the speed of sound."
+  },
+  {
+    word: "landing",
+    blankword: "landing",
+    meaning: "着陸",
+    sentenceJa: "エンジントラブルのため、パイロットは緊急着陸を試みた",
+    sentenceEn: "The pilot tried an emergency landing because of engine trouble."
+  },
+  {
+    word: "passenger",
+    blankword: "passengers",
+    meaning: "乗客",
+    sentenceJa: "かれらは500人以上の乗客を運ぶ新しい飛行機を開発中だ",
+    sentenceEn: "They are developing a new aircraft which carries more than 500 passengers."
+  },
+  {
+    word: "aisle",
+    blankword: "aisle",
+    meaning: "通路",
+    sentenceJa: "私は飛行機の通路側の席がいいです",
+    sentenceEn: "I would like an aisle seat on the airplane."
+  },
+  {
+    word: "coast",
+    blankword: "coast",
+    meaning: "海岸、沿岸",
+    sentenceJa: "ハリケーンが東海岸に接近中だ",
+    sentenceEn: "The hurricane is approaching the east coast."
+  },
+  {
+    word: "bay",
+    blankword: "bay",
+    meaning: "湾、入り江",
+    sentenceJa: "その湾岸地域は30年前に開発された",
+    sentenceEn: "The bay area was developed 30 years ago."
+  },
+  {
+    word: "tide",
+    blankword: "tide",
+    meaning: "潮（の干満）",
+    sentenceJa: "この湾では潮位は10メートル下がる",
+    sentenceEn: "The tide falls by 10 meters in this bay."
+  },
+  {
+    word: "fasten",
+    blankword: "fasten",
+    meaning: "締める、留める",
+    sentenceJa: "車を運転するときはシートベルトを締めるのを忘れないように",
+    sentenceEn: "Don't forget to fasten your seatbelt when you drive a car."
+  },
+  {
+    word: "manufacture",
+    blankword: "manufactured",
+    meaning: "製造する、製造業",
+    sentenceJa: "日本で製造された建設機械はさまざまな国で売られている",
+    sentenceEn: "Construction equipment manufactured in Japan is sold in various countries."
+  },
+  {
+    word: "hunt",
+    blankword: "hunted",
+    meaning: "狩猟する、狩り",
+    sentenceJa: "以前は多くの国でクジラが狩られていた",
+    sentenceEn: "Whales were hunted in many countries before."
+  },
+  {
+    word: "demonstrate",
+    blankword: "demonstrated",
+    meaning: "実演する、明らかにする",
+    sentenceJa: "インストラクターがその新しいパソコンの使い方を実演した",
+    sentenceEn: "The instructor demonstrated how to use the new PC."
+  },
+  {
+    word: "investigate",
+    blankword: "investigating",
+    meaning: "調査する",
+    sentenceJa: "警察はその火事の原因を調査している",
+    sentenceEn: "The police are investigating the cause of the fire."
+  },
+  {
+    word: "bear",
+    blankword: "bear",
+    meaning: "耐える、（子を）産む",
+    sentenceJa: "私はもうその騒音には耐えられない",
+    sentenceEn: "I can no longer bear the noise."
+  },
+  {
+    word: "imagine",
+    blankword: "imagine",
+    meaning: "想像する",
+    sentenceJa: "未来の世界を想像できますか",
+    sentenceEn: "Can you imagine the world of the future?"
+  },
+  {
+    word: "convince",
+    blankword: "convince",
+    meaning: "（人を）納得させる、確信させる",
+    sentenceJa: "かれらは原発の必要性を住民に納得させようとしている",
+    sentenceEn: "They are trying to convince people of the need for a nuclear power plant."
+  },
+    {
+    word: "suspect",
+    blankword: "suspected",
+    meaning: "疑う、容疑者",
+    sentenceJa: "その技術者は電圧降下の原因が回路基板にあるのではないかと疑った",
+    sentenceEn: "The engineer suspected the circuit board as the cause of the voltage drop."
+  },
+  {
+    word: "arrest",
+    blankword: "arrested",
+    meaning: "逮捕する、逮捕",
+    sentenceJa: "その男は会社の金を盗んだ疑いで逮捕された",
+    sentenceEn: "The man was arrested on suspicion of stealing the company's money."
+  },
+  {
+    word: "gain",
+    blankword: "gain",
+    meaning: "得る、利得",
+    sentenceJa: "植物は太陽からエネルギーを得ている",
+    sentenceEn: "Plants gain energy from the sun."
+  },
+  {
+    word: "indicate",
+    blankword: "indicates",
+    meaning: "示す、表示する",
+    sentenceJa: "このグラフは地球の温度の急速な変化を示している",
+    sentenceEn: "This graph indicates a rapid change in the earth's temperature."
+  },
+  {
+    word: "associate",
+    blankword: "associates",
+    meaning: "関連づける、関係する",
+    sentenceJa: "このプログラムはファイルの名前と形式を自動的に関連づける",
+    sentenceEn: "This program automatically associates the name and type of the files."
+  },
+  {
+    word: "prepare",
+    blankword: "are preparing",
+    meaning: "準備する、用意する",
+    sentenceJa: "学生たちは実験室で化学実験の準備をしている",
+    sentenceEn: "Students are preparing for a chemical experiment in the laboratory."
+  },
+  {
+    word: "utilize",
+    blankword: "utilize",
+    meaning: "利用する",
+    sentenceJa: "私たちはできるだけ太陽エネルギーを利用するべきだ",
+    sentenceEn: "We should utilize solar energy as much as possible."
+  },
+  {
+    word: "extend",
+    blankword: "Extend",
+    meaning: "伸ばす、広げる、広がる",
+    sentenceJa: "右腕を伸ばして壁に触れなさい",
+    sentenceEn: "Extend your right arm and touch the wall."
+  }
 ];
 
 console.log("data loaded", quizDataRaw);
