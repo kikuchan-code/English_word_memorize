@@ -1,7 +1,7 @@
 // wordと違う形（活用・過去形など）の場合は、blankwordで空欄にする箇所を指定する
 // 複数語対応
 
-const vocabulary = [
+const quizDataRaw = [
   {
     word: "rely",
     blankword: "rely",
