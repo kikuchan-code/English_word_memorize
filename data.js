@@ -2,406 +2,349 @@
 // 複数語対応
 
 const quizDataRaw = [
-
-{
-  word: "enlarge",
-  blankword: "enlarge",
-  meaning: "拡大する",
-  sentenceJa: "このグラフィックイメージを拡大して印刷してください。",
-  sentenceEn: "Please enlarge this graphical image and print it out."
-},
-
-{
-  word: "import",
-  blankword: "imports",
-  meaning: "輸入する、輸入",
-  sentenceJa: "アメリカは日本から車を輸入する。",
-  sentenceEn: "The United States imports cars from Japan."
-},
-
-{
-  word: "export",
-  blankword: "exporting",
-  meaning: "輸出する、輸出",
-  sentenceJa: "港に入っているあれらの船はすべて自動車を輸出するための船です。",
-  sentenceEn: "These ships in the port are all for exporting cars."
-},
-
-{
-  word: "revive",
-  blankword: "revived",
-  meaning: "生き返らせる、生き返る",
-  sentenceJa: "増加する自動車輸出が日本経済を生き返らせた。",
-  sentenceEn: "Increasing exports of cars revived the Japanese economy."
-},
-
-{
-  word: "domestic",
-  blankword: "domestic",
-  meaning: "国内の、家庭の",
-  sentenceJa: "この空港は国内線専用です。",
-  sentenceEn: "This airport is only for domestic airlines."
-},
-
-{
-  word: "tight",
-  blankword: "tight",
-  meaning: "きつい、しっかりした",
-  sentenceJa: "その結び目はきつすぎて誰もほどくことができなかった。",
-  sentenceEn: "The knot was so tight that no one could untie it."
-},
-
-{
-  word: "loose",
-  blankword: "loose",
-  meaning: "ゆるんだ、だらしない",
-  sentenceJa: "ゆるんだネジを見つけて締め直しなさい。",
-  sentenceEn: "Find the loose screws and tighten them again."
-},
-
-{
-  word: "steep",
-  blankword: "steep",
-  meaning: "急な、険しい",
-  sentenceJa: "その坂は急すぎて、この古い車では上れない。",
-  sentenceEn: "The slope is too steep for this old car to go up."
-},
-
-{
-  word: "cruel",
-  blankword: "cruel",
-  meaning: "残酷な、悲惨な",
-  sentenceJa: "その実験は動物にとって残酷なので禁止された。",
-  sentenceEn: "The experiment was banned because it was cruel to animals."
-},
-
-{
-  word: "ugly",
-  blankword: "ugly",
-  meaning: "醜い、不快な",
-  sentenceJa: "その怪物の醜い顔は子供たちを怖がらせた。",
-  sentenceEn: "The ugly face of the monster scared the children."
-},
-
-{
-  word: "firm",
-  blankword: "firm",
-  meaning: "固い、断固とした、会社",
-  sentenceJa: "私たちは固い地盤の上に家を建てるべきです。",
-  sentenceEn: "We should build our houses on firm ground."
-},
-
-{
-  word: "rare",
-  blankword: "rare",
-  meaning: "珍しい、希少な",
-  sentenceJa: "その島では珍しい植物が見られます。",
-  sentenceEn: "We can see many rare plants on the island."
-},
-
-{
-  word: "ancient",
-  blankword: "ancient",
-  meaning: "古代の、昔の",
-  sentenceJa: "古代生物の代表的な例はアンモナイトです。",
-  sentenceEn: "A major example of an ancient animal is ammonite."
-},
-
-{
-  word: "grave",
-  blankword: "graves",
-  meaning: "墓、重大な、深刻な",
-  sentenceJa: "ピラミッドは古代の王の墓だと考えられている。",
-  sentenceEn: "Pyramids are thought to be graves of ancient kings."
-},
-
-{
-  word: "section",
-  blankword: "sections",
-  meaning: "区画、切断面",
-  sentenceJa: "この建物には立ち入り禁止の区画がいくつかある。",
-  sentenceEn: "There are sections in this building that you are not allowed to enter."
-},
-
-{
-  word: "dose",
-  blankword: "dose",
-  meaning: "（薬の）一服、服用量",
-  sentenceJa: "毎食後その薬を1服飲みなさい。",
-  sentenceEn: "Take one dose of the medicine after every meal."
-},
-
-{
-  word: "shot",
-  blankword: "shot",
-  meaning: "発射、注射",
-  sentenceJa: "彼は熊に向けて散弾銃を発射した。",
-  sentenceEn: "He shot at the bear with a shotgun."
-},
-
-{
-  word: "progress",
-  blankword: "progress",
-  meaning: "進行、進歩",
-  sentenceJa: "その化学反応の進行を注意深く観察しなさい。",
-  sentenceEn: "Watch the progress of the chemical reaction carefully."
-},
-
-{
-  word: "court",
-  blankword: "court",
-  meaning: "法廷、コート",
-  sentenceJa: "この法廷は家庭問題を扱うところです。",
-  sentenceEn: "This court is for family cases."
-},
-
-{
-  word: "campaign",
-  blankword: "campaign",
-  meaning: "広報活動、キャンペーン",
-  sentenceJa: "多くの学生が核兵器反対キャンペーンに参加した。",
-  sentenceEn: "Many students took part in the campaign against nuclear weapons."
-},
-
-{
-  word: "document",
-  blankword: "documents",
-  meaning: "文書、記録、記録する",
-  sentenceJa: "公文書の多くはインターネットで読むことができます。",
-  sentenceEn: "Official documents can be read on the Internet."
-},
-
-{
-  word: "signature",
-  blankword: "signature",
-  meaning: "署名",
-  sentenceJa: "契約を完了させるためにあなたの署名が必要です。",
-  sentenceEn: "We need your signature to complete the contract."
-},
-
-{
-  word: "margin",
-  blankword: "margin",
-  meaning: "余白、余裕",
-  sentenceJa: "その書類の余白にコメントを書いてください。",
-  sentenceEn: "Write your comments in the margin of the document."
-},
-
-{
-  word: "script",
-  blankword: "script",
-  meaning: "台本",
-  sentenceJa: "この記録映画には台本はない。",
-  sentenceEn: "There is no script for this documentary film."
-},
-
-{
-  word: "client",
-  blankword: "client",
-  meaning: "依頼人、クライアント",
-  sentenceJa: "弁護士は依頼人に契約書へ署名するように言った。",
-  sentenceEn: "The lawyer told his client to add a signature to the contract."
-},
-
-{
-  word: "photograph",
-  blankword: "photographs",
-  meaning: "写真、撮影する",
-  sentenceJa: "法廷で写真を撮ってはいけません。",
-  sentenceEn: "You must not take photographs in the court."
-},
-
-{
-  word: "portrait",
-  blankword: "portrait",
-  meaning: "肖像、肖像画",
-  sentenceJa: "この肖像は写真ではなく絵です。",
-  sentenceEn: "This portrait is not a photograph but a drawing."
-},
-
-{
-  word: "landscape",
-  blankword: "landscape",
-  meaning: "景色、風景",
-  sentenceJa: "地震以来、この辺りの景色はかなり変わってしまった。",
-  sentenceEn: "The landscape of this area has changed a lot since the earthquake."
-},
-
-{
-  word: "certificate",
-  blankword: "certificate",
-  meaning: "証明書、免許状",
-  sentenceJa: "その学校に出願するには、英語の技能を証明する証明書が必要です。",
-  sentenceEn: "To apply to the school, you need a certificate proving your English skills."
-},
-
-{
-  word: "bulb",
-  blankword: "bulb",
-  meaning: "電球、球根",
-  sentenceJa: "電球は1879年にトーマス・エジソンによって発明された。",
-  sentenceEn: "The light bulb was invented by Thomas Edison in 1879."
-},
-
-{
-  word: "filament",
-  blankword: "filament",
-  meaning: "フィラメント",
-  sentenceJa: "エジソンは最初の電球のフィラメントを作るために色々な材料を試した。",
-  sentenceEn: "Edison tested many materials for the filament in the first light bulb."
-},
-
-{
-  word: "strategy",
-  blankword: "strategy",
-  meaning: "方略、戦略",
-  sentenceJa: "この方程式を解くためのあなたの方略を説明してください。",
-  sentenceEn: "Please explain your strategy for solving this equation."
-},
-
-{
-  word: "cluster",
-  blankword: "cluster",
-  meaning: "集合体、クラスター",
-  sentenceJa: "そのプールには核燃料棒の集合体が保管されている。",
-  sentenceEn: "A cluster of nuclear fuel rods are stored in that pool."
-},
-
-{
-  word: "crowd",
-  blankword: "crowd",
-  meaning: "群衆、群がる",
-  sentenceJa: "空港では大勢の人がその有名俳優の到着を待っていた。",
-  sentenceEn: "A big crowd was waiting for the famous actor's arrival at the airport."
-},
-
-{
-  word: "therapy",
-  blankword: "therapy",
-  meaning: "治療、治療法",
-  sentenceJa: "その医師は患者グループに対して新しい治療法を試した。",
-  sentenceEn: "The doctor tried a new therapy on a group of his patients."
-},
-
-{
-  word: "forum",
-  blankword: "forum",
-  meaning: "公開討論会、フォーラム",
-  sentenceJa: "インターネット上で生中継の公開討論会が開かれた。",
-  sentenceEn: "A live forum was held on the Internet."
-},
-
-{
-  word: "audience",
-  blankword: "audience",
-  meaning: "聴衆、観衆",
-  sentenceJa: "そのフォーラムの聴衆が多すぎて、ホールに入れない人がいた。",
-  sentenceEn: "The audience of the forum was so large that some of them couldn't enter the hall."
-},
-
-{
-  word: "secret",
-  blankword: "secret",
-  meaning: "秘密、秘密の、秘訣",
-  sentenceJa: "彼は自分の発明を長いあいだ秘密にしていた。",
-  sentenceEn: "He kept his invention secret for a long time."
-},
-
-{
-  word: "slave",
-  blankword: "slaves",
-  meaning: "奴隷、子機",
-  sentenceJa: "リンカーンは国内のすべての奴隷を解放するよう命じた。",
-  sentenceEn: "Lincoln ordered all the slaves in the country to be set free."
-},
-
-{
-  word: "equivalent",
-  blankword: "equivalent",
-  meaning: "等価の、同等の、同等物",
-  sentenceJa: "相対性理論によれば、質量とエネルギーは等価である。",
-  sentenceEn: "According to the theory of relativity, mass and energy are equivalent."
-},
-
-{
-  word: "visible",
-  blankword: "visible",
-  meaning: "目に見える",
-  sentenceJa: "空が暗くなると星が見えるようになる。",
-  sentenceEn: "The stars become visible when the sky gets dark."
-},
-
-{
-  word: "bright",
-  blankword: "bright",
-  meaning: "明るい",
-  sentenceJa: "照明が十分明るかったので、すべてのものが見えた。",
-  sentenceEn: "The light was bright enough to make everything visible."
-},
-
-{
-  word: "dim",
-  blankword: "dim",
-  meaning: "薄暗い、ぼんやりした、暗くする",
-  sentenceJa: "このカメラは感度が高いので、薄暗い明かりの中でも使えます。",
-  sentenceEn: "This camera is sensitive enough to be used in dim light."
-},
-
-{
-  word: "slender",
-  blankword: "slender",
-  meaning: "細長い、わずかな",
-  sentenceJa: "ほとんどのヘビは細長い体を持ち、足がない。",
-  sentenceEn: "Most snakes have a long slender body with no legs."
-},
-
-{
-  word: "optical",
-  blankword: "optical",
-  meaning: "光学の、目の、視覚の",
-  sentenceJa: "これは世界最大の光学望遠鏡だ。",
-  sentenceEn: "This is the largest optical telescope in the world."
-},
-
-{
-  word: "entire",
-  blankword: "entire",
-  meaning: "全体の、すべての",
-  sentenceJa: "このワイヤーが橋全体の重量を支えています。",
-  sentenceEn: "This wire holds the entire weight of the bridge."
-},
-
-{
-  word: "worth",
-  blankword: "worth",
-  meaning: "～の価値がある、価値",
-  sentenceJa: "この材料はたった1グラムで数万円もの価値がある。",
-  sentenceEn: "Only a gram of this material is worth tens of thousands of yen."
-},
-
-{
-  word: "essential",
-  blankword: "essential",
-  meaning: "不可欠の、本質的な",
-  sentenceJa: "携帯電話は今、必要不可欠なコミュニケーションの道具だと考えられている。",
-  sentenceEn: "The cell phone is now considered an essential communication tool."
-},
-
-{
-  word: "perform",
-  blankword: "performed",
-  meaning: "行う、上演する、動作する",
-  sentenceJa: "そのコンピュータープログラムは完璧に動作した。",
-  sentenceEn: "The computer program performed perfectly."
-},
-
-{
-  word: "concentrate",
-  blankword: "concentrating",
-  meaning: "集中する、集中させる、濃縮する",
-  sentenceJa: "人口が都市部に急速に集中してきている。",
-  sentenceEn: "The population is rapidly concentrating in cities."
-},
+  {
+    word: "assume",
+    blankword: "Assuming",
+    meaning: "仮定する、想定する",
+    sentenceJa: "xがゼロだと仮定すると、yはいくつになりますか。",
+    sentenceEn: "Assuming that x is zero, what will y be?"
+  },
+  {
+    word: "intend",
+    blankword: "intended",
+    meaning: "意図する",
+    sentenceJa: "それは私たちが意図していたものではない。",
+    sentenceEn: "That is not what we intended."
+  },
+  {
+    word: "confirm",
+    blankword: "Confirm",
+    meaning: "確認する",
+    sentenceJa: "あなたのID番号を確認してください。",
+    sentenceEn: "Please confirm your ID number."
+  },
+  {
+    word: "define",
+    blankword: "define",
+    meaning: "定義する",
+    sentenceJa: "議論の前に用語を定義しなければいけません。",
+    sentenceEn: "You must define the terms before discussion."
+  },
+  {
+    word: "transmit",
+    blankword: "is transmitted",
+    meaning: "送信する、伝導する",
+    sentenceJa: "情報は直接コンピューターに送信される。",
+    sentenceEn: "The information is transmitted directly to the computers."
+  },
+  {
+    word: "attach",
+    blankword: "Attach",
+    meaning: "付ける、添付する",
+    sentenceJa: "応募書類には最近撮った写真を貼り付けてください。",
+    sentenceEn: "Attach a recent photograph to your application form."
+  },
+  {
+    word: "attract",
+    blankword: "attract",
+    meaning: "引きつける",
+    sentenceJa: "異なる電荷を持つ2つの物体は互いに引きつけ合う。",
+    sentenceEn: "Objects with different electrical charges attract each other."
+  },
+  {
+    word: "repel",
+    blankword: "repel",
+    meaning: "反発する",
+    sentenceJa: "磁石の同極は反発し合う。",
+    sentenceEn: "The same poles of magnets repel each other."
+  },
+  {
+    word: "scope",
+    blankword: "scope",
+    meaning: "範囲、視野",
+    sentenceJa: "それは私たちの想定の範囲を超えている。",
+    sentenceEn: "It is beyond the scope of our assumptions."
+  },
+  {
+    word: "illusion",
+    blankword: "illusion",
+    meaning: "錯覚、幻想",
+    sentenceJa: "その線が曲がって見えるのは錯覚です。",
+    sentenceEn: "It is an optical illusion that the line looks curved."
+  },
+  {
+    word: "wavelength",
+    blankword: "wavelength",
+    meaning: "波長",
+    sentenceJa: "波長は周波数に反比例する。",
+    sentenceEn: "The wavelength is inversely proportional to the frequency."
+  },
+  {
+    word: "amplitude",
+    blankword: "amplitude",
+    meaning: "振幅",
+    sentenceJa: "音波の振幅が大きいほど、その音量は大きくなる。",
+    sentenceEn: "The bigger the amplitude of a sound wave is, the louder its volume becomes."
+  },
+  {
+    word: "infrared",
+    blankword: "infrared",
+    meaning: "赤外線（の）",
+    sentenceJa: "赤外線が当たった物質は熱くなる。",
+    sentenceEn: "Substances which receive infrared rays become hot."
+  },
+  {
+    word: "ultraviolet",
+    blankword: "ultraviolet",
+    meaning: "紫外線（の）",
+    sentenceJa: "紫外線の波長は可視光線の波長よりも短い。",
+    sentenceEn: "The wavelength of ultraviolet rays is shorter than that of visible light."
+  },
+  {
+    word: "ultrasound",
+    blankword: "Ultrasound",
+    meaning: "超音波",
+    sentenceJa: "超音波はしばしば身体検査に利用される。",
+    sentenceEn: "Ultrasound is often utilized for physical examinations."
+  },
+  {
+    word: "ripple",
+    blankword: "ripple",
+    meaning: "さざ波",
+    sentenceJa: "スピーカーからの大きな音で水面にさざ波が立った。",
+    sentenceEn: "The loud sound from the speaker caused a ripple on the water surface."
+  },
+  {
+    word: "attention",
+    blankword: "attention",
+    meaning: "注意、注目",
+    sentenceJa: "実験中は常にその装置に注意を払っていなければいけません。",
+    sentenceEn: "You must always pay attention to the device during the experiment."
+  },
+  {
+    word: "statement",
+    blankword: "statement",
+    meaning: "声明（書）、陳述",
+    sentenceJa: "総理大臣が新聞に声明を出した。",
+    sentenceEn: "The Prime Minister made a statement to the newspapers."
+  },
+  {
+    word: "gravity",
+    blankword: "gravity",
+    meaning: "重力、引力、重大さ",
+    sentenceJa: "月の重力は地球上の約6分の1だ。",
+    sentenceEn: "The gravity on the moon is about one sixth of that on the earth."
+  },
+  {
+    word: "velocity",
+    blankword: "velocity",
+    meaning: "速度",
+    sentenceJa: "その列車の平均速度は時速約80キロです。",
+    sentenceEn: "The mean velocity of the train is about 80 kilometers per hour."
+  },
+  {
+    word: "phenomenon",
+    blankword: "phenomenon",
+    meaning: "現象",
+    sentenceJa: "錯覚とは、目に見える像が実際の像と異なる現象です。",
+    sentenceEn: "Illusion is a phenomenon where the visual image is different from the actual image."
+  },
+  {
+    word: "glue",
+    blankword: "glue",
+    meaning: "接着剤、のり；（のりで）つける",
+    sentenceJa: "それぞれの部品に接着剤を塗り、それらを貼り合わせなさい。",
+    sentenceEn: "Apply glue to each part and attach them together."
+  },
+  {
+    word: "carbohydrate",
+    blankword: "carbohydrates",
+    meaning: "炭水化物",
+    sentenceJa: "彼女はパンやイモなどの炭水化物を食べないようにしている。",
+    sentenceEn: "She avoids eating carbohydrates such as bread and potatoes."
+  },
+  {
+    word: "glucose",
+    blankword: "Glucose",
+    meaning: "ブドウ糖",
+    sentenceJa: "ブドウ糖と酸素は筋肉が働くのに必要である。",
+    sentenceEn: "Glucose and oxygen are necessary for muscles to move."
+  },
+  {
+    word: "starch",
+    blankword: "Starch",
+    meaning: "でんぷん",
+    sentenceJa: "でんぷんは多数のグルコース単位からなる炭水化物である。",
+    sentenceEn: "Starch is a carbohydrate consisting of a large number of glucose units."
+  },
+  {
+    word: "chlorophyll",
+    blankword: "Chlorophyll",
+    meaning: "葉緑素",
+    sentenceJa: "葉緑素は植物が二酸化炭素を酸素に変えるのを助ける。",
+    sentenceEn: "Chlorophyll helps plants turn carbon dioxide into oxygen."
+  },
+  {
+    word: "photosynthesis",
+    blankword: "photosynthesis",
+    meaning: "光合成",
+    sentenceJa: "植物は光合成のために二酸化炭素を必要とする。",
+    sentenceEn: "Green plants need carbon dioxide for photosynthesis."
+  },
+  {
+    word: "pigment",
+    blankword: "pigment",
+    meaning: "色素、絵の具",
+    sentenceJa: "葉緑素は光合成において重要な緑色の色素である。",
+    sentenceEn: "Chlorophyll is a green pigment which is very important in photosynthesis."
+  },
+  {
+    word: "mission",
+    blankword: "mission",
+    meaning: "計画、任務",
+    sentenceJa: "アポロ11号計画の目的は人間を月面に降り立たせることだった。",
+    sentenceEn: "The purpose of the Apollo 11 mission was to land men on the lunar surface."
+  },
+  {
+    word: "soldier",
+    blankword: "soldiers",
+    meaning: "兵士",
+    sentenceJa: "その兵士たちはテロリストに殺害された。",
+    sentenceEn: "The soldiers have been killed by the terrorists."
+  },
+  {
+    word: "sword",
+    blankword: "sword",
+    meaning: "刀、剣",
+    sentenceJa: "日本刀は鋼から作られる。",
+    sentenceEn: "The Japanese sword is made out of steel."
+  },
+  {
+    word: "armor",
+    blankword: "armor",
+    meaning: "よろい",
+    sentenceJa: "日本のよろいは金属や木や革で作られていた。",
+    sentenceEn: "Japanese armor was made of metal, wood or leather."
+  },
+  {
+    word: "passion",
+    blankword: "passion",
+    meaning: "情熱、激情",
+    sentenceJa: "彼女の宇宙科学に対する情熱が彼女の宇宙での任務遂行につながった。",
+    sentenceEn: "Her passion for space science led her to the space mission."
+  },
+  {
+    word: "candidate",
+    blankword: "candidate",
+    meaning: "候補（者）",
+    sentenceJa: "これは次世代PCシステムの候補である。",
+    sentenceEn: "This is a candidate for a next-generation PC system."
+  },
+  {
+    word: "phase",
+    blankword: "phase",
+    meaning: "段階、位相",
+    sentenceJa: "宇宙飛行の最も重要な段階は打ち上げから軌道に乗るまでである。",
+    sentenceEn: "The most essential phase of a space mission is from lift-off to orbit."
+  },
+  {
+    word: "situation",
+    blankword: "situation",
+    meaning: "状況、立場",
+    sentenceJa: "その地域の状況は1年前よりも良くなった。",
+    sentenceEn: "The situation of that area has gotten better than it was a year ago."
+  },
+  {
+    word: "fragment",
+    blankword: "fragments",
+    meaning: "かけら、破片",
+    sentenceJa: "その壁は岩のかけらでできている。",
+    sentenceEn: "The wall is made of fragments of rock."
+  },
+  {
+    word: "fault",
+    blankword: "fault",
+    meaning: "過失、欠点",
+    sentenceJa: "その事故は列車運転士の過失によるものだった。",
+    sentenceEn: "The accident was due to the train driver's fault."
+  },
+  {
+    word: "danger",
+    blankword: "danger",
+    meaning: "危険",
+    sentenceJa: "化学の実験には火災の危険がある。",
+    sentenceEn: "There is a danger of fire in some chemical experiments."
+  },
+  {
+    word: "toxin",
+    blankword: "toxin",
+    meaning: "毒素",
+    sentenceJa: "これらのバクテリアは強力な毒素を出す。",
+    sentenceEn: "These bacteria produce a strong toxin."
+  },
+  {
+    word: "favor",
+    blankword: "favor",
+    meaning: "好意、引き立て",
+    sentenceJa: "その町の住民は好意を持って私たちを迎え入れてくれた。",
+    sentenceEn: "The people in the town welcomed us with favor."
+  },
+  {
+    word: "summit",
+    blankword: "summit",
+    meaning: "頂上、頂点",
+    sentenceJa: "もうすぐ山頂に着きます。",
+    sentenceEn: "We will reach the summit of the mountain soon."
+  },
+  {
+    word: "difficulty",
+    blankword: "difficulty",
+    meaning: "困難、難しさ",
+    sentenceJa: "私は数学の宿題で困難を感じたことはありません。",
+    sentenceEn: "I have never found difficulty in my math homework."
+  },
+  {
+    word: "yield",
+    blankword: "yield",
+    meaning: "収穫（高）、産出（量）；産出する",
+    sentenceJa: "新種の米で収穫高がこれまでよりも上がった。",
+    sentenceEn: "The new rice seeds produced a higher yield."
+  },
+  {
+    word: "regulation",
+    blankword: "regulations",
+    meaning: "規定、調整",
+    sentenceJa: "コンテストの規定は遵守しなければならない。",
+    sentenceEn: "You must follow the regulations of the contest."
+  },
+  {
+    word: "tradition",
+    blankword: "tradition",
+    meaning: "伝統",
+    sentenceJa: "漢方医学には長い歴史と伝統がある。",
+    sentenceEn: "Chinese medicine has a long history and tradition."
+  },
+  {
+    word: "obvious",
+    blankword: "obvious",
+    meaning: "明らかな",
+    sentenceJa: "その実験が失敗だったのは明らかだ。",
+    sentenceEn: "It is obvious that the experiment failed."
+  },
+  {
+    word: "pale",
+    blankword: "pale",
+    meaning: "青白い、（色が）薄い",
+    sentenceJa: "紫外線をかけるとその物質は青白い光を発した。",
+    sentenceEn: "The material emitted pale light under ultraviolet rays."
+  },
+  {
+    word: "severe",
+    blankword: "severe",
+    meaning: "激しい、厳しい",
+    sentenceJa: "この病気は背中に激しい痛みを生じさせる。",
+    sentenceEn: "This disease causes a severe pain in your back."
+  }
 ];
 
 console.log("data loaded", quizDataRaw);
