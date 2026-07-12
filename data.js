@@ -3,354 +3,347 @@
 
 const quizDataRaw = [
   {
-    word: "broad",
-    blankword: "broad",
-    meaning: "（幅が）広い",
-    sentenceJa: "この川は河口がとても広い。",
-    sentenceEn: "This river is very broad at its mouth."
+    word: "flood",
+    blankword: "flood",
+    meaning: "洪水",
+    sentenceJa: "その町は洪水で破壊された。",
+    sentenceEn: "The town was destroyed by the flood."
   },
   {
-    word: "narrow",
-    blankword: "narrow",
-    meaning: "狭い",
-    sentenceJa: "その道路は狭かったので私の車は通れなかった。",
-    sentenceEn: "The road was too narrow for my car to pass."
+    word: "drought",
+    blankword: "drought",
+    meaning: "干ばつ、日照り",
+    sentenceJa: "その干ばつで多くの牛や他の家畜が死んだ。",
+    sentenceEn: "The drought killed many cows and other farm animals."
   },
   {
-    word: "radioactive",
-    blankword: "radioactive",
-    meaning: "放射性の",
-    sentenceJa: "原子力発電所は放射性物質を貯蔵している。",
-    sentenceEn: "Nuclear power stations store radioactive substances."
+    word: "customer",
+    blankword: "customers",
+    meaning: "顧客、取引先",
+    sentenceJa: "営業担当者にとって最も大切なことは、顧客を大事にすることである。",
+    sentenceEn: "The most important thing for salespeople is to take good care of their customers."
   },
   {
-    word: "uranium",
-    blankword: "Uranium",
-    meaning: "ウラン",
-    sentenceJa: "ウランは最もよく知られた放射性元素の一つです。",
-    sentenceEn: "Uranium is one of the most common radioactive elements."
+    word: "whisper",
+    blankword: "whispered",
+    meaning: "ささやく",
+    sentenceJa: "彼女は私に何かささやいたが、私にはその言葉が聞き取れなかった。",
+    sentenceEn: "She whispered something to me, but I couldn't catch the words."
   },
   {
-    word: "plutonium",
-    blankword: "Plutonium",
-    meaning: "プルトニウム",
-    sentenceJa: "プルトニウムは原子炉の中で副産物として生成される。",
-    sentenceEn: "Plutonium is created in the nuclear reactor as a by-product."
+    word: "stimulate",
+    blankword: "stimulates",
+    meaning: "刺激する",
+    sentenceJa: "光は植物の成長を刺激する。",
+    sentenceEn: "Light stimulates plant growth."
   },
   {
-    word: "neutron",
-    blankword: "neutron",
-    meaning: "中性子",
-    sentenceJa: "中性子の電荷はゼロである。",
-    sentenceEn: "A neutron has no electrical charge."
+    word: "assign",
+    blankword: "assign",
+    meaning: "割り当てる",
+    sentenceJa: "これらのコンピューターそれぞれに固有の名前を割り当てる必要がある。",
+    sentenceEn: "We have to assign unique names to each of these computers."
   },
   {
-    word: "proton",
-    blankword: "proton",
-    meaning: "陽子",
-    sentenceJa: "水素原子は1個の陽子を持つ。",
-    sentenceEn: "A hydrogen atom has one proton."
+    word: "promote",
+    blankword: "promoted",
+    meaning: "促進する、昇進させる",
+    sentenceJa: "かれらの責任ある顧客サービスがわが社の製品の売り上げを促進した。",
+    sentenceEn: "Their responsible customer service promoted sales of our products."
   },
   {
-    word: "nucleus",
-    blankword: "nucleus",
-    meaning: "核",
-    sentenceJa: "原子核は中性子と陽子からなる。",
-    sentenceEn: "An atomic nucleus consists of neutrons and protons."
+    word: "resign",
+    blankword: "resigned",
+    meaning: "辞任する、辞職する",
+    sentenceJa: "その監督はチームの成績不振の責任を取って辞任した。",
+    sentenceEn: "The manager resigned to take responsibility for the team's poor performance."
   },
   {
-    word: "broadcast",
-    blankword: "broadcast",
-    meaning: "放送する",
-    sentenceJa: "オリンピックは衛星によって世界中に放送される。",
-    sentenceEn: "The Olympics are broadcast by satellites all over the world."
+    word: "bind",
+    blankword: "Bind",
+    meaning: "縛る、結びつける",
+    sentenceJa: "この針金でそれらの棒を一緒に縛ってください。",
+    sentenceEn: "Bind those poles together with this wire."
   },
   {
-    word: "obtain",
-    blankword: "obtain",
-    meaning: "手に入れる、獲得する",
-    sentenceJa: "新聞と放送は情報を手に入れるための伝統的な手段である。",
-    sentenceEn: "Newspapers and broadcasting are traditional ways to obtain information."
+    word: "mention",
+    blankword: "mentioned",
+    meaning: "～について言う、言及する",
+    sentenceJa: "この問題については前に言ってあります。",
+    sentenceEn: "I have mentioned this problem before."
   },
   {
-    word: "wonder",
-    blankword: "wondered",
-    meaning: "不思議に思う、～かなと思う",
-    sentenceJa: "彼らはなぜ雷が落ちるのかが不思議だった。",
-    sentenceEn: "They wondered why lightning strikes."
+    word: "delay",
+    blankword: "delayed",
+    meaning: "遅らせる、遅れ",
+    sentenceJa: "列車が悪天候のために1時間遅れている。",
+    sentenceEn: "The train is delayed for an hour because of bad weather."
   },
   {
-    word: "scream",
-    blankword: "screaming",
-    meaning: "叫ぶ",
-    sentenceJa: "女性が助けを求めて叫んでいた。",
-    sentenceEn: "A lady was screaming for help."
+    word: "ignore",
+    blankword: "ignore",
+    meaning: "無視する",
+    sentenceJa: "機械の警告表示を無視してはならない。",
+    sentenceEn: "You must not ignore the warning signs on the machine."
   },
   {
-    word: "regard",
-    blankword: "regarded",
-    meaning: "みなす",
-    sentenceJa: "彼は次の大統領候補の筆頭とみなされている。",
-    sentenceEn: "He is regarded as the best candidate for the next president."
+    word: "recommend",
+    blankword: "recommend",
+    meaning: "薦める、推薦する",
+    sentenceJa: "自分が人に薦めたものについては責任を持たなければいけません。",
+    sentenceEn: "You must take responsibility for what you recommend to someone."
   },
   {
-    word: "adopt",
-    blankword: "adopt",
-    meaning: "採用する、養子にする",
-    sentenceJa: "私たちはその橋の建設に新工法を採用することに決めた。",
-    sentenceEn: "We decided to adopt a new method for building the bridge."
+    word: "deliver",
+    blankword: "delivered",
+    meaning: "配達する、（考えを）述べる",
+    sentenceJa: "今日の朝刊はまだ配達されていないようです。",
+    sentenceEn: "Today's morning paper doesn't seem to have been delivered yet."
   },
   {
-    word: "preserve",
-    blankword: "preserve",
-    meaning: "保護する、保存する",
-    sentenceJa: "その放送局は自然保護のキャンペーンを開始した。",
-    sentenceEn: "The broadcast station launched a campaign to preserve nature."
+    word: "arise",
+    blankword: "arises",
+    meaning: "起こる、発生する",
+    sentenceJa: "問題が起きたらできるだけ早く知らせてください。",
+    sentenceEn: "If a problem arises, please let me know as soon as possible."
   },
   {
-    word: "extract",
-    blankword: "extracted",
-    meaning: "抽出する、抜粋する",
-    sentenceJa: "ほとんどの種類の植物油は木の実や種から抽出される。",
-    sentenceEn: "Most kinds of vegetable oil are extracted from nuts or seeds."
+    word: "contribute",
+    blankword: "contributed",
+    meaning: "貢献する、寄付する",
+    sentenceJa: "新しい配信システムは、メッセージ配信の遅れを減らすことに貢献した。",
+    sentenceEn: "The new delivery system contributed to reducing the delay in message delivery."
   },
   {
-    word: "substitute",
-    blankword: "substitute",
-    meaning: "代用する、置き換える",
-    sentenceJa: "パンを焼くのに、小麦粉を米粉で代用することもできます。",
-    sentenceEn: "You can substitute rice powder for flour to bake bread."
+    word: "respect",
+    blankword: "respects",
+    meaning: "尊敬する、大切にする",
+    sentenceJa: "自分を大切にしないと、他人からも尊敬されませんよ。",
+    sentenceEn: "Nobody respects you unless you respect yourself."
   },
   {
-    word: "transform",
-    blankword: "transformed",
-    meaning: "変換する、変形させる",
-    sentenceJa: "運動エネルギーは熱エネルギーに変換される。",
-    sentenceEn: "Kinetic energy is transformed into heat energy."
+    word: "insult",
+    blankword: "insult",
+    meaning: "侮辱する",
+    sentenceJa: "人前で話すときは人を侮辱しないように気をつけなさい。",
+    sentenceEn: "Be careful not to insult other people when you speak in public."
   },
   {
-    word: "smash",
-    blankword: "smashed",
-    meaning: "粉々にする（なる）",
-    sentenceJa: "少年はハンマーでガラス瓶を砕いて粉々にした。",
-    sentenceEn: "The boy smashed a glass bottle into pieces with a hammer."
+    word: "violate",
+    blankword: "violate",
+    meaning: "（規則などを）破る、違反する",
+    sentenceJa: "法律に違反すると免許を取り消されることがあります。",
+    sentenceEn: "If you violate the law, you might lose your license."
   },
   {
-    word: "positive",
-    blankword: "positive",
-    meaning: "正の、肯定的な",
-    sentenceJa: "正の電荷を持つイオンは陽イオンと呼ばれる。",
-    sentenceEn: "Ions that have positive charges are called positive ions."
+    word: "puzzle",
+    blankword: "puzzled",
+    meaning: "困惑させる",
+    sentenceJa: "彼が突然私を無視したので私は困惑した。",
+    sentenceEn: "I was puzzled because he suddenly ignored me."
   },
   {
-    word: "efficient",
-    blankword: "efficient",
-    meaning: "効率がよい、効果的な",
-    sentenceJa: "この新しい機械は以前の機械より2倍効率がよい。",
-    sentenceEn: "This new machine is twice as efficient as the old one."
+    word: "log",
+    blankword: "log",
+    meaning: "丸太、記録する",
+    sentenceJa: "丸太の直径が梁に十分かどうか確認しなさい。",
+    sentenceEn: "Make sure the diameter of the log is large enough for the beam."
   },
   {
-    word: "vital",
-    blankword: "vital",
-    meaning: "生命の、極めて重要な",
-    sentenceJa: "生命現象の研究は生物学のひとつの分野だ。",
-    sentenceEn: "Studying vital phenomena is a field of biology."
+    word: "vessel",
+    blankword: "vessel",
+    meaning: "管、船",
+    sentenceJa: "医師は血流を止めるためにその血管を縛った。",
+    sentenceEn: "The doctor bound the blood vessel to stop the blood stream."
   },
   {
-    word: "outer",
-    blankword: "outer",
-    meaning: "外側の、外の",
-    sentenceJa: "彼の皮膚の外側の層が放射線によって傷ついた。",
-    sentenceEn: "The outer layer of his skin was damaged by the radioactive rays."
+    word: "bowl",
+    blankword: "bowl",
+    meaning: "鉢（ボウル）",
+    sentenceJa: "そのボウルの容積は500ccです。",
+    sentenceEn: "The capacity of that bowl is 500cc."
   },
   {
-    word: "integer",
-    blankword: "integer",
-    meaning: "整数",
-    sentenceJa: "3でも4でも割り切れる最小の整数は12です。",
-    sentenceEn: "The smallest integer that can be divided by both 3 and 4 is 12."
+    word: "deck",
+    blankword: "deck",
+    meaning: "甲板（デッキ）",
+    sentenceJa: "そのコンテナ船は甲板上にクレーンを備えている。",
+    sentenceEn: "The container vessel has a crane on its deck."
   },
   {
-    word: "fraction",
-    blankword: "fraction",
-    meaning: "一部分、断片、分数",
-    sentenceJa: "地球は太陽エネルギーのほんの一部分しか受けていない。",
-    sentenceEn: "The earth receives only a fraction of the sun's energy."
+    word: "cabin",
+    blankword: "cabin",
+    meaning: "小屋、（船・飛行機の）客室、船室",
+    sentenceJa: "かれらは森に小さな丸太小屋を作った。",
+    sentenceEn: "They built a small log cabin in the forest."
   },
   {
-    word: "denominator",
-    blankword: "denominator",
-    meaning: "分母",
-    sentenceJa: "分数の下段の数字が分母である。",
-    sentenceEn: "The bottom number of a fraction is the denominator."
+    word: "anchor",
+    blankword: "anchor",
+    meaning: "いかり、固定する",
+    sentenceJa: "船が動いているときには絶対に錨を下ろしてはいけない。",
+    sentenceEn: "Never drop the anchor while the ship is in motion."
   },
   {
-    word: "numerator",
-    blankword: "numerator",
-    meaning: "分子",
-    sentenceJa: "分子と分母に同じ数を掛けなさい。",
-    sentenceEn: "Multiply the numerator and denominator by the same number."
+    word: "stock",
+    blankword: "stocks",
+    meaning: "株式、在庫",
+    sentenceJa: "祖父はよく多額の金を株式に投資していたものだ。",
+    sentenceEn: "My grandfather used to put a lot of money into stocks."
   },
   {
-    word: "polygon",
-    blankword: "polygon",
-    meaning: "多角形",
-    sentenceJa: "正多角形のすべての辺と角は等しい。",
-    sentenceEn: "All the sides and angles of a regular polygon are equal."
+    word: "collapse",
+    blankword: "collapse",
+    meaning: "崩壊、崩壊する",
+    sentenceJa: "彼の素早い行動によって建物の崩壊をまぬがれた。",
+    sentenceEn: "His quick action saved the building from collapse."
   },
   {
-    word: "formula",
-    blankword: "formula",
-    meaning: "公式、一定の決まり",
-    sentenceJa: "この方程式を解くには単純に公式を適用すればよい。",
-    sentenceEn: "You can simply apply the formula to solve this equation."
+    word: "thread",
+    blankword: "threads",
+    meaning: "糸、糸を通す",
+    sentenceJa: "その機械は綿を紡いで糸にします。",
+    sentenceEn: "The machine spins cotton into threads."
   },
   {
-    word: "sphere",
-    blankword: "sphere",
-    meaning: "球、天体",
-    sentenceJa: "球の表面積は4πr²という公式から求められる。",
-    sentenceEn: "The surface area of a sphere is calculated from the formula 4πr²."
+    word: "needle",
+    blankword: "needle",
+    meaning: "針",
+    sentenceJa: "針の穴に糸を通してくれますか。",
+    sentenceEn: "Will you pass the thread through the eye of the needle?"
   },
   {
-    word: "sum",
-    blankword: "sum",
-    meaning: "総和、合計",
-    sentenceJa: "多角形の外角の和は常に360度である。",
-    sentenceEn: "The sum of the outer angles of a polygon is always 360 degrees."
+    word: "impression",
+    blankword: "Impressions",
+    meaning: "印象",
+    sentenceJa: "第一印象は心に残りやすい。",
+    sentenceEn: "First Impressions tend to stick in our minds."
   },
   {
-    word: "numerical",
-    blankword: "numerical",
-    meaning: "数の、数に関する",
-    sentenceJa: "その公式に数値を代入しなさい。",
-    sentenceEn: "Substitute numerical values into the formula."
+    word: "path",
+    blankword: "path",
+    meaning: "通り道、小道",
+    sentenceJa: "金属線は電気の通り道になる。",
+    sentenceEn: "A metal wire becomes a path for electricity."
   },
   {
-    word: "numerous",
-    blankword: "numerous",
-    meaning: "数多くの",
-    sentenceJa: "海には数多くの種類の魚がいる。",
-    sentenceEn: "There are numerous kinds of fish in the ocean."
+    word: "branch",
+    blankword: "branch",
+    meaning: "支店、枝",
+    sentenceJa: "彼は支店の主任に昇進した。",
+    sentenceEn: "He has been promoted to the chief of the branch."
   },
   {
-    word: "consecutive",
-    blankword: "consecutive",
-    meaning: "連続した",
-    sentenceJa: "その積が156になる連続した2つの数を求めよ。",
-    sentenceEn: "Find two consecutive numbers with a product of 156."
+    word: "altogether",
+    blankword: "altogether",
+    meaning: "全体で、総計で",
+    sentenceJa: "わが社のすべての支店を閉鎖するには全体で100万ドルのコストがかかる。",
+    sentenceEn: "It will cost us one million dollars altogether to close all our branches."
   },
   {
-    word: "decimal",
-    blankword: "decimal",
-    meaning: "10進法の、小数の",
-    sentenceJa: "コンピューターの中では10進数は2進数に変換される。",
-    sentenceEn: "In computers, decimal numbers are transformed into binary numbers."
+    word: "clockwise",
+    blankword: "clockwise",
+    meaning: "時計回りに、右回りに",
+    sentenceJa: "ハンドルを時計回りに回せばドアが開きます。",
+    sentenceEn: "If you turn the handle clockwise, the door will open."
   },
   {
-    word: "fundamental",
-    blankword: "fundamental",
-    meaning: "基本的な、根本的な",
-    sentenceJa: "まず最初にいくつかの基本的な質問に答えてください。",
-    sentenceEn: "First of all, you have to answer some fundamental questions."
+    word: "upright",
+    blankword: "upright",
+    meaning: "垂直に、直立した",
+    sentenceJa: "ひまわりは垂直に成長する背の高い植物だ。",
+    sentenceEn: "Sunflowers are tall plants which grow upright."
   },
   {
-    word: "ordinary",
-    blankword: "ordinary",
-    meaning: "ありふれた、普通の、通常の",
-    sentenceJa: "ナットとボルトはありふれた機械部品だ。",
-    sentenceEn: "Nuts and bolts are ordinary parts of machines."
+    word: "respectively",
+    blankword: "respectively",
+    meaning: "それぞれ",
+    sentenceJa: "表1と2はそれぞれ1番目と2番目の実験結果を示している。",
+    sentenceEn: "Charts 1 and 2 respectively show the results of the first and second experiments."
   },
   {
-    word: "annual",
-    blankword: "annual",
-    meaning: "年1回の、1年の",
-    sentenceJa: "その年1回の会議は今年は3月に開かれる。",
-    sentenceEn: "The annual conference will be held in March this year."
+    word: "regardless",
+    blankword: "regardless",
+    meaning: "（～に）かかわらず",
+    sentenceJa: "その国では年齢にかかわらずお酒を飲むことはできません。",
+    sentenceEn: "In that country, you can't drink alcohol regardless of age."
   },
   {
-    word: "salary",
-    blankword: "salary",
-    meaning: "給料、月給",
-    sentenceJa: "私の給料は毎月1回銀行振り込みで支払われます。",
-    sentenceEn: "My salary is paid once a month through a bank transfer."
+    word: "gentle",
+    blankword: "gentle",
+    meaning: "優しい、穏やかな",
+    sentenceJa: "水の流れの優しい音を眠りに誘った。",
+    sentenceEn: "The gentle sound of the running stream put me to sleep."
   },
   {
-    word: "pioneer",
-    blankword: "pioneers",
-    meaning: "先駆者",
-    sentenceJa: "彼は光ファイバーを開発した先駆者の一人です。",
-    sentenceEn: "He is one of the pioneers who developed optical fiber."
+    word: "legal",
+    blankword: "legal",
+    meaning: "合法的な、法律の",
+    sentenceJa: "合法か違法かにかかわらず、決してタバコは吸うべきでない。",
+    sentenceEn: "You should never smoke regardless of whether it's legal or illegal."
   },
   {
-    word: "spectrum",
-    blankword: "spectrum",
-    meaning: "スペクトル",
-    sentenceJa: "虹は太陽光のスペクトルとみなすことができる。",
-    sentenceEn: "A rainbow can be regarded as a spectrum of sunlight."
+    word: "vast",
+    blankword: "vast",
+    meaning: "莫大な、広大な",
+    sentenceJa: "核反応は莫大なエネルギーを発する。",
+    sentenceEn: "A nuclear reaction releases vast amounts of energy."
   },
   {
-    word: "aspect",
-    blankword: "aspects",
-    meaning: "（物事の）側面、外観",
-    sentenceJa: "この問題の別の側面を見てみましょう。",
-    sentenceEn: "Let's have a look at other aspects of this matter."
+    word: "thermal",
+    blankword: "thermal",
+    meaning: "熱の、温度の",
+    sentenceJa: "最もよく知られている熱エネルギー源は太陽です。",
+    sentenceEn: "The best known source of thermal energy is the sun."
   },
   {
-    word: "chapter",
-    blankword: "chapters",
-    meaning: "章",
-    sentenceJa: "この本の中の3つの章は私が書きました。",
-    sentenceEn: "I wrote three chapters of this book."
+    word: "overall",
+    blankword: "overall",
+    meaning: "全体的な",
+    sentenceJa: "新しい管理システムは全体的な生産コストの削減に貢献した。",
+    sentenceEn: "The new management system contributed to reducing overall cost of production."
   },
   {
-    word: "concept",
-    blankword: "concept",
-    meaning: "概念、考え、構想",
-    sentenceJa: "コンピューター技術者は2進法の概念を理解していなければならない。",
-    sentenceEn: "Computer engineers must understand the concept of the binary system."
+    word: "sexual",
+    blankword: "sexual",
+    meaning: "性の、性的な",
+    sentenceJa: "その研究では子供の体力に性差があることがわかった。",
+    sentenceEn: "The research showed a sexual difference in children's physical performance."
   },
   {
-    word: "career",
-    blankword: "career",
-    meaning: "職業、経歴",
-    sentenceJa: "この学校の学生の多くは技術系の職業を選びます。",
-    sentenceEn: "Many students in this school choose a career in engineering."
+    word: "critical",
+    blankword: "critical",
+    meaning: "危機的な、決定的な、批判的な",
+    sentenceJa: "テロ攻撃のあとその国は危機的状況になっている。",
+    sentenceEn: "The country is in a critical situation after the terrorist attack."
   },
   {
-    word: "content",
-    blankword: "content",
-    meaning: "内容",
-    sentenceJa: "この章の内容は分数の計算のしかたについてです。",
-    sentenceEn: "The content of this chapter is about how to calculate fractions."
+    word: "nearby",
+    blankword: "nearby",
+    meaning: "近くの、近くで",
+    sentenceJa: "その患者は近くの病院に運ばれた。",
+    sentenceEn: "The patient was taken to the nearby hospital."
   },
   {
-    word: "responsibility",
-    blankword: "responsibility",
-    meaning: "責任",
-    sentenceJa: "自分のウェブサイトの内容については自分が全責任を負わなければならない。",
-    sentenceEn: "You must take full responsibility for the contents of your web site."
+    word: "crucial",
+    blankword: "crucial",
+    meaning: "決定的な、重大な",
+    sentenceJa: "その製品の販売ではデザインが決定的な要因だった。",
+    sentenceEn: "Design was the crucial element in the sales of the product."
   },
   {
-    word: "opportunity",
-    blankword: "opportunity",
-    meaning: "機会",
-    sentenceJa: "今日はあなたとお話しする機会を持ててとてもうれしいです。",
-    sentenceEn: "I'm very happy to have an opportunity to talk with you today."
+    word: "prior",
+    blankword: "prior",
+    meaning: "前の、先の",
+    sentenceJa: "道具を使う前には点検を忘れないこと。",
+    sentenceEn: "Never forget to check tools prior to using them."
   },
   {
-    word: "fluid",
-    blankword: "fluid",
-    meaning: "流体",
-    sentenceJa: "液体だけでなく気体も流体とみなされる。",
-    sentenceEn: "Not only liquid but also gas is considered as fluid."
-  },
-  {
-    word: "stream",
-    blankword: "stream",
-    meaning: "流れ、小川",
-    sentenceJa: "この飛行機は気流に逆らって飛んでいます。",
-    sentenceEn: "This airplane is flying against the stream of air."
+    word: "senior",
+    blankword: "senior",
+    meaning: "上級の、年長の",
+    sentenceJa: "彼は退職後この会社の上級顧問になった。",
+    sentenceEn: "He became a senior advisor of this company after retirement."
   }
 ];
 
