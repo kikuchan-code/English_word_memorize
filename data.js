@@ -17,6 +17,13 @@ const quizDataRaw = [
     sentenceEn: "The drought killed many cows and other farm animals."
   },
   {
+    word: "foundation",
+    blankword: "foundations",
+    meaning: "基礎、基金、設立",
+    sentenceJa: "建物の基礎を築くのに約3週間かかった。",
+    sentenceEn: "It took about three weeks to lay the foundations of the building."
+  },
+  {
     word: "customer",
     blankword: "customers",
     meaning: "顧客、取引先",
